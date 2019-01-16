@@ -2,7 +2,7 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Form1'
-  ClientHeight = 301
+  ClientHeight = 348
   ClientWidth = 562
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -19,32 +19,57 @@ object Form1: TForm1
     Left = 3
     Top = 3
     Width = 556
-    Height = 295
+    Height = 342
     Align = alClient
     BevelOuter = bvNone
-    Caption = 'Panel1'
     TabOrder = 0
-    ExplicitLeft = 280
-    ExplicitTop = 80
-    ExplicitWidth = 185
-    ExplicitHeight = 41
-    object Button2: TButton
-      Left = 224
-      Top = 208
-      Width = 75
-      Height = 25
-      Caption = '< Back'
+    ExplicitLeft = 8
+    ExplicitTop = -2
+    ExplicitHeight = 295
+    object Panel2: TPanel
+      Left = 0
+      Top = 282
+      Width = 556
+      Height = 60
+      Align = alBottom
+      BevelEdges = [beTop]
+      BevelKind = bkTile
+      BevelOuter = bvNone
+      BiDiMode = bdLeftToRight
+      ParentBiDiMode = False
       TabOrder = 0
-      OnClick = Button2Click
+      ExplicitTop = 235
+      object Button1: TButton
+        Left = 313
+        Top = 19
+        Width = 75
+        Height = 25
+        Caption = 'Next >'
+        TabOrder = 0
+        OnClick = Button1Click
+      end
+      object Button2: TButton
+        Left = 232
+        Top = 19
+        Width = 75
+        Height = 25
+        Caption = '< Back'
+        TabOrder = 1
+        OnClick = Button2Click
+      end
     end
-    object Button1: TButton
-      Left = 305
-      Top = 208
-      Width = 75
-      Height = 25
-      Caption = 'Next >'
+    object Panel3: TPanel
+      Left = 0
+      Top = 0
+      Width = 556
+      Height = 60
+      Align = alTop
+      BevelEdges = [beBottom]
+      BevelKind = bkTile
+      BevelOuter = bvNone
+      Color = clCream
+      ParentBackground = False
       TabOrder = 1
-      OnClick = Button1Click
     end
   end
 end

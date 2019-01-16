@@ -40,19 +40,19 @@ end;
 
 function One.Render: TObjectList<TWinControl>;
 var
-  b1, b2: TButton;
+  p1, p2: TPanel;
 begin
-  buttons:= TObjectList<TWinControl>.create;
-  b1:= TButton.Create(nil);
-  b1.left := 100;
-  b1.top := 100;
-  b1.caption := 'OneButton1';
-  buttons.Add(b1);
-  b2:= TButton.Create(nil);
-  b2.left := 200;
-  b2.top := 200;
-  b2.caption := 'OneButton2';
-  buttons.Add(b2);
+  buttons := TObjectList<TWinControl>.create;
+  p1 := TPanel.create(nil);
+  p1.left := 100;
+  p1.top := 100;
+  p1.caption := 'OneButton1';
+  buttons.Add(p1);
+  p2 := TPanel.create(nil);
+  p2.left := 200;
+  p2.top := 200;
+  p2.caption := 'OneButton2';
+  buttons.Add(p2);
   result := buttons;
 end;
 

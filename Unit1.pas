@@ -18,6 +18,8 @@ type
     Button1: TButton;
     Button2: TButton;
     Panel1: TPanel;
+    Panel2: TPanel;
+    Panel3: TPanel;
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
