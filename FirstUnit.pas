@@ -24,22 +24,24 @@ TNotifyEvent = procedure (Sender: TObject) of object;
     buttons: TObjectList<TWinControl>;
     /// <link>aggregation</link>
     Document1: Document;
-    procedure click(Sender: TObject);
+    button: TButton;
+    //procedure click(Sender: TObject);
   public
     function Render: TObjectList<TWinControl>;
     procedure destroy;
+    function getButton: TButton;
   end;
 
 implementation
 
 { First }
-
+{
 procedure First.click(Sender: TObject);
 begin
   //Document1:= Document.Create(Form1);
   //buttons:=Document1.Render(One.Create);
 end;
-
+}
 constructor First.create;
 begin
   buttons:= TObjectList<TWinControl>.create;
@@ -51,6 +53,11 @@ var
 begin
   for b in buttons do
     b.Free;
+end;
+
+function First.getButton: TButton;
+begin
+  result:=button;
 end;
 
 function First.Render: TObjectList<TWinControl>;
@@ -94,15 +101,16 @@ begin
   b1.Anchors:=[akRight, akBottom];
   b1.Caption:='Next >';
   b1.left := 312;
-  b1.OnClick:=self.Click;
-  b1.top := 306;
+  //b1.OnClick:=self.Click;
+  b1.top := 318;
+  button:= b1;
   buttons.Add(b1);
   b2 := TButton.create(nil);
   b2.Anchors:=[akLeft, akBottom];
   b2.Caption:='< Back';
   b2.Enabled:=false;
   b2.left := 232;
-  b2.top := 306;
+  b2.top := 318;
   buttons.Add(b2);
   result:=buttons;
 end;

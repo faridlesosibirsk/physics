@@ -20,7 +20,10 @@ type
   private
     /// <link>aggregation</link>
     Document1: Document;
+    /// <link>aggregation</link>
+    First1: First;
     buttons: TObjectList<TWinControl>;
+    procedure click(Sender: TObject);
   public
   end;
 
@@ -31,10 +34,17 @@ implementation
 
 {$R *.dfm}
 
+procedure TForm1.click(Sender: TObject);
+begin
+  buttons:=Document1.Render(One.Create);
+end;
+
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   Document1:= Document.Create(self);
-  buttons:=Document1.Render(First.Create);
+  First1:= First.create;
+  buttons:=Document1.Render(First1);
+  First1.getButton.OnClick:=self.click;
 end;
 
 end.
