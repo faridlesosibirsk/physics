@@ -1,100 +1,40 @@
 unit Unit1;
-interface
+
+interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
-  System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms,
-  Vcl.StdCtrls, System.Generics.Collections, Vcl.Grids, Vcl.Outline,
-  Vcl.ComCtrls, Vcl.ExtCtrls;
+  FirstUnit,
+  System.Generics.Collections {TList},
+  DocumentUnit, {Document}
+  OneUnit, {First}
+  Vcl.StdCtrls {TButton},
+  TwoUnit, {Second}
+  Vcl.ExtCtrls {TPanel},
+  Vcl.Forms {TForm},
+  Vcl.Controls, System.Classes;
 
 type
-  FactoryInterface = interface;
-
   TForm1 = class(TForm)
+    procedure FormCreate(Sender: TObject);
+  published
   private
     /// <link>aggregation</link>
-    Factory1: FactoryInterface;
+    Document1: Document;
+    buttons: TObjectList<TWinControl>;
   public
-  published
-    Button1: TButton;
-    Button2: TButton;
-    procedure Button1Click(Sender: TObject);
-    procedure Button2Click(Sender: TObject);  
-    procedure FormCreate(Sender: TObject);
   end;
 
-  FactoryInterface = interface
-    procedure ButtonCreate(AOwner: TForm);
-    procedure ButtonDestroy;
-  end;
-
-  Factory = class(TInterfacedObject, FactoryInterface)
-  private
-    ButtonDictionary: TDictionary<String, TButton>;
-  public
-    procedure ButtonCreate(AOwner: TForm);
-    procedure ButtonDestroy;
-  published
-    constructor create;
-  end;
+var
+  Form1: TForm1;
 
 implementation
 
 {$R *.dfm}
 
-procedure TForm1.Button1Click(Sender: TObject);
-begin
-  Factory1.ButtonCreate(self);
-end;
-
-procedure TForm1.Button2Click(Sender: TObject);
-begin
-  Factory1.ButtonDestroy;
-end;
-
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-  Factory1 := Factory.create;
-end;
-
-{ Factory }
-
-procedure Factory.ButtonDestroy;
-var
-  b: TButton;
-  i:integer;
-begin
-  try
-    if (ButtonDictionary.ContainsKey('button1')) then
-    begin
-      ButtonDictionary['button1'].Parent := nil;
-      ButtonDictionary.Remove('button1');
-    end;
-  except
-  end;
-end;
-
-constructor Factory.create;
-begin
-  ButtonDictionary := TDictionary<String, TButton>.create;
-end;
-
-procedure Factory.ButtonCreate(AOwner: TForm);
-var
-  b: TButton;
-begin
-  try
-    if not(ButtonDictionary.ContainsKey('button1')) then
-    begin
-      b := TButton.create(nil);
-      b.Parent := AOwner;
-      b.Caption := 'button1';
-      ButtonDictionary.add('button1', b);
-    end;
-  except
-  end;
+  Document1:= Document.Create(self);
+  buttons:=Document1.Render(First.Create);
 end;
 
 end.
-

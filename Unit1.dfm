@@ -1,10 +1,12 @@
 object Form1: TForm1
   Left = 0
   Top = 0
-  Caption = 'Form1'
-  ClientHeight = 301
+  Caption = #1054#1090#1082#1088#1099#1090#1072#1103' '#1092#1080#1079#1080#1082#1072
+  ClientHeight = 348
   ClientWidth = 562
   Color = clBtnFace
+  Constraints.MinHeight = 387
+  Constraints.MinWidth = 578
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -14,22 +16,4 @@ object Form1: TForm1
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  object Button1: TButton
-    Left = 216
-    Top = 0
-    Width = 75
-    Height = 25
-    Caption = 'Button1'
-    TabOrder = 0
-    OnClick = Button1Click
-  end
-  object Button2: TButton
-    Left = 312
-    Top = 0
-    Width = 75
-    Height = 25
-    Caption = 'Button2'
-    TabOrder = 1
-    OnClick = Button2Click
-  end
 end
