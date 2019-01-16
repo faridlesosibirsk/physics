@@ -3,15 +3,16 @@ unit Unit1;
 interface
 
 uses
-  FirstUnit,
-  System.Generics.Collections {TList},
+  FirstUnit {First},
+  OneUnit {One},
+  TwoUnit {Two},
   DocumentUnit, {Document}
-  OneUnit, {First}
+  System.Generics.Collections {TList},
   Vcl.StdCtrls {TButton},
-  TwoUnit, {Second}
   Vcl.ExtCtrls {TPanel},
   Vcl.Forms {TForm},
-  Vcl.Controls, System.Classes;
+  Vcl.Controls {TWinControl},
+  System.Classes {TComponent};
 
 type
   TForm1 = class(TForm)
@@ -22,8 +23,12 @@ type
     Document1: Document;
     /// <link>aggregation</link>
     First1: First;
+    /// <link>aggregation</link>
+    One1: One;
+    Two1: Two;
     buttons: TObjectList<TWinControl>;
-    procedure click(Sender: TObject);
+    procedure clickFirst(Sender: TObject);
+    procedure clickOne(Sender: TObject);
   public
   end;
 
@@ -34,9 +39,18 @@ implementation
 
 {$R *.dfm}
 
-procedure TForm1.click(Sender: TObject);
+procedure TForm1.clickFirst(Sender: TObject);
 begin
-  buttons:=Document1.Render(One.Create);
+  One1:= One.create;
+  buttons:=Document1.Render(One1);
+  One1.getButton.OnClick:=self.clickOne;
+end;
+
+procedure TForm1.clickOne(Sender: TObject);
+begin
+  First1:= First.create;
+  buttons:=Document1.Render(First1);
+  First1.getButton.OnClick:=self.clickFirst;
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
@@ -44,7 +58,7 @@ begin
   Document1:= Document.Create(self);
   First1:= First.create;
   buttons:=Document1.Render(First1);
-  First1.getButton.OnClick:=self.click;
+  First1.getButton.OnClick:=self.clickFirst;
 end;
 
 end.

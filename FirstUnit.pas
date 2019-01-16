@@ -22,10 +22,7 @@ TNotifyEvent = procedure (Sender: TObject) of object;
     constructor create;
   private
     buttons: TObjectList<TWinControl>;
-    /// <link>aggregation</link>
-    Document1: Document;
     button: TButton;
-    //procedure click(Sender: TObject);
   public
     function Render: TObjectList<TWinControl>;
     procedure destroy;
@@ -34,14 +31,6 @@ TNotifyEvent = procedure (Sender: TObject) of object;
 
 implementation
 
-{ First }
-{
-procedure First.click(Sender: TObject);
-begin
-  //Document1:= Document.Create(Form1);
-  //buttons:=Document1.Render(One.Create);
-end;
-}
 constructor First.create;
 begin
   buttons:= TObjectList<TWinControl>.create;
@@ -78,7 +67,7 @@ begin
   p2.BevelKind:=bkTile;
   p2.BevelOuter := bvNone;
   p2.BorderWidth:=20;
-  p2.caption := 'Движение с постоянным ускорением';
+  p2.caption := 'Движение с постоянным ускорением First';
   p2.Color:=clWhite;
   p2.Height:=60;
   p2.ParentBackground:=false;

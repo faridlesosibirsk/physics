@@ -3,7 +3,6 @@ unit TwoUnit;
 interface
 
 uses
-  Vcl.Forms,
   StateUnit,
   Controls {TWinControl},
   System.Generics.Collections {TList} ,
