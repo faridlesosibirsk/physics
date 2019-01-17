@@ -5,8 +5,8 @@ uses
   Unit1 in 'Unit1.pas' {Form1},
   DirectorUnit in 'DirectorUnit.pas',
   BuilderUnit in 'BuilderUnit.pas',
-  ButtonUnit in 'ButtonUnit.pas',
-  PanelUnit in 'PanelUnit.pas';
+  ButtonBuilderUnit in 'ButtonBuilderUnit.pas',
+  PanelBuilderUnit in 'PanelBuilderUnit.pas';
 
 {$R *.res}
 
