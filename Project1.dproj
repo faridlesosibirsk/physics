@@ -86,29 +86,27 @@
 				<Form>Form1</Form>
 				<FormType>dfm</FormType>
 			</DCCReference>
-			<DCCReference Include="DocumentUnit.pas"/>
-			<DCCReference Include="StateUnit.pas"/>
-			<DCCReference Include="OneUnit.pas"/>
-			<DCCReference Include="TwoUnit.pas"/>
-			<DCCReference Include="ThreeUnit.pas"/>
-			<DCCReference Include="FirstUnit.pas"/>
+			<DCCReference Include="DirectorUnit.pas"/>
+			<DCCReference Include="BuilderUnit.pas"/>
+			<DCCReference Include="ButtonUnit.pas"/>
+			<DCCReference Include="PanelUnit.pas"/>
 			<None Include="ModelSupport_Project1\default.txaPackage"/>
 			<None Include="ModelSupport_Project1\default.txvpck"/>
 			<None Include="ModelSupport_Project1\Unit1\default.txvpck"/>
 			<None Include="ModelSupport_Project1\Project1\default.txvpck"/>
 			<None Include="ModelSupport_Project1\Unit1\default.txaPackage"/>
 			<None Include="ModelSupport_Project1\StateUnit\default.txvpck"/>
-			<None Include="ModelSupport_Project1\FirstUnit\default.txvpck"/>
 			<None Include="ModelSupport_Project1\DocumentUnit\default.txvpck"/>
 			<None Include="ModelSupport_Project1\SecondUnit\default.txaPackage"/>
 			<None Include="ModelSupport_Project1\SecondUnit\default.txvpck"/>
-			<None Include="ModelSupport_Project1\FirstUnit\default.txaPackage"/>
-			<None Include="ModelSupport_Project1\OneUnit\default.txaPackage"/>
-			<None Include="ModelSupport_Project1\ThreeUnit\default.txaPackage"/>
-			<None Include="ModelSupport_Project1\TwoUnit\default.txaPackage"/>
-			<None Include="ModelSupport_Project1\TwoUnit\default.txvpck"/>
-			<None Include="ModelSupport_Project1\ThreeUnit\default.txvpck"/>
-			<None Include="ModelSupport_Project1\OneUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\ButtonUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\PanelUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\DirectorUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\BuilderUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\ButtonUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\PanelUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\DirectorUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\BuilderUnit\default.txvpck"/>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>

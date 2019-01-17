@@ -3,25 +3,24 @@ unit Unit1;
 interface
 
 uses
-  FirstUnit,
-  System.Generics.Collections {TList},
-  DocumentUnit, {Document}
-  OneUnit, {First}
-  Vcl.StdCtrls {TButton},
-  TwoUnit, {Second}
-  Vcl.ExtCtrls {TPanel},
-  Vcl.Forms {TForm},
-  Vcl.Controls, System.Classes;
+  // System.Generics.Collections {TList},
+  // Vcl.StdCtrls {TButton},
+  // Vcl.ExtCtrls {TPanel},
+  // Vcl.Controls,
+  // System.Classes
+  ButtonUnit {Button},
+  DirectorUnit {Director},
+  Vcl.Forms {TForm};
 
 type
   TForm1 = class(TForm)
-    procedure FormCreate(Sender: TObject);
-  published
   private
     /// <link>aggregation</link>
-    Document1: Document;
-    buttons: TObjectList<TWinControl>;
+    Director1: Director;
+    /// <link>aggregation</link>
+    Button1: Button;
   public
+  published
   end;
 
 var
@@ -30,11 +29,5 @@ var
 implementation
 
 {$R *.dfm}
-
-procedure TForm1.FormCreate(Sender: TObject);
-begin
-  Document1:= Document.Create(self);
-  buttons:=Document1.Render(First.Create);
-end;
 
 end.
