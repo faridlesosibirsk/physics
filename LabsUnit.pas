@@ -5,6 +5,7 @@ interface
 uses
   DocumentUnit,
   StatesUnit,
+  Lab1Unit,
   System.Generics.Collections {TDictionary};
 
 type
@@ -14,6 +15,7 @@ type
     Document1: Document;
   public
     function getDoc: TDictionary<String, String>;
+    procedure getLab1;
   published
     constructor create;
   end;
@@ -30,6 +32,11 @@ end;
 function Labs.getDoc: TDictionary<String, String>;
 begin
   result := Document1.getLab;
+end;
+
+procedure Labs.getLab1;
+begin
+  Document1.ChangeLab(Lab1.create);
 end;
 
 end.

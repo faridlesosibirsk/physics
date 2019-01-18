@@ -8,6 +8,7 @@ uses
 type
   Physics = interface
     function makeContent: TPanel;
+    function makeLab11: TPanel;
   end;
 
 implementation

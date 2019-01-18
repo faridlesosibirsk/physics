@@ -9,6 +9,7 @@ uses
 type
   States = interface
     function getDoc: TDictionary<String, String>;
+    procedure getLab1;
   end;
 
 implementation
