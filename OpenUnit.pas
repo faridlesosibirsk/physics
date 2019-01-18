@@ -4,6 +4,8 @@ interface
 
 uses
   PhysicsUnit,
+  LabsUnit,
+  StatesUnit {States},
   Vcl.ExtCtrls {TPanel} ,
   Vcl.StdCtrls {TButton} ,
   BuilderUnit {Builder} ,
@@ -11,10 +13,14 @@ uses
   PanelBuilderUnit {PanelBuilder} ,
   DirectorUnit {Director} ,
   System.Classes,
-  Vcl.Controls;
+  Vcl.Controls,
+  System.Generics.Collections {TDictionary};
 
 type
   Open = class(TInterfacedObject, Physics)
+  private
+    /// <link>aggregation</link>
+    State: States;
   public
     function makeContent: TPanel;
   end;
@@ -25,12 +31,17 @@ implementation
 
 function Open.makeContent: TPanel;
 var
+  State1: States;
   Director1: Director;
   Builder1: ButtonBuilder;
   Builder2, Builder3, Builder4: PanelBuilder;
   Button1: TButton;
   Panel2, Panel3, Panel4: TPanel;
+  doc: TDictionary<String, String>;
 begin
+  State:= Labs.Create;
+  doc:=State.getDoc;
+
   Director1 := Director.create();
 
   Builder4 := PanelBuilder.create;

@@ -12,7 +12,9 @@ uses
   Lab1Unit in 'Lab1Unit.pas',
   ContentUnit in 'ContentUnit.pas',
   PhysicsUnit in 'PhysicsUnit.pas',
-  OpenUnit in 'OpenUnit.pas';
+  OpenUnit in 'OpenUnit.pas',
+  StatesUnit in 'StatesUnit.pas',
+  LabsUnit in 'LabsUnit.pas';
 
 {$R *.res}
 
