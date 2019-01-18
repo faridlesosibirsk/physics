@@ -90,6 +90,10 @@
 			<DCCReference Include="BuilderUnit.pas"/>
 			<DCCReference Include="ButtonBuilderUnit.pas"/>
 			<DCCReference Include="PanelBuilderUnit.pas"/>
+			<DCCReference Include="OpenPhysicsUnit.pas"/>
+			<DCCReference Include="StateUnit.pas"/>
+			<DCCReference Include="Lab1Unit.pas"/>
+			<DCCReference Include="ContentUnit.pas"/>
 			<None Include="ModelSupport_Project1\default.txaPackage"/>
 			<None Include="ModelSupport_Project1\default.txvpck"/>
 			<None Include="ModelSupport_Project1\Unit1\default.txvpck"/>
@@ -110,6 +114,13 @@
 			<None Include="ModelSupport_Project1\ButtonBuilderUnit\default.txvpck"/>
 			<None Include="ModelSupport_Project1\PanelBuilderUnit\default.txvpck"/>
 			<None Include="ModelSupport_Project1\PanelBuilderUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\OpenPhysicsUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\Lab1Unit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\StateUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\OpenPhysicsUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\Lab1Unit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\ContentUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\ContentUnit\default.txvpck"/>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>

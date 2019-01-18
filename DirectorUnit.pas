@@ -1,38 +1,101 @@
-unit DirectorUnit;
+﻿unit DirectorUnit;
 
 interface
 
 uses
-  BuilderUnit;
+  BuilderUnit,
+  ContentUnit {Content},
+  Graphics {TColor},
+  System.Classes {TAlignment},
+  Vcl.Controls {TAlign},
+  System.Generics.Collections {TDictionary};
 
 type
   Director = class
   private
     /// <link>aggregation</link>
-    builder: Builder;
+    builder: builder;
+    procedure NotifyEvent(Sender: TObject);
   public
-    procedure makeNextButton(builder: Builder);
-    procedure makeHeaderPanel(builder: Builder);
+    procedure makeNextButton(builder: builder);
+    procedure makeHeaderPanel(builder: builder);
+    procedure makeFooterPanel(builder: builder);
+    procedure makeContentPanel(builder: builder);
+  published
+    constructor create;
   end;
 
 implementation
 
 { Director }
 
-procedure Director.makeHeaderPanel(builder: Builder);
+constructor Director.create;
 begin
-  builder.reset;
-  builder.setLeft(0);
-  builder.setTop(0);
-  builder.setCaption('');
+  //
 end;
 
-procedure Director.makeNextButton(builder: Builder);
+procedure Director.makeContentPanel(builder: builder);
 begin
-  builder.reset;
-  builder.setLeft(300);
-  builder.setTop(300);
-  builder.setCaption('Next >');
+  with builder do
+  begin
+    reset;
+    Left(100);
+    Top(100);
+    Align(alClient);
+    BevelOuter(bvNone);
+  end;
+end;
+
+procedure Director.makeFooterPanel(builder: builder);
+begin
+  with builder do
+  begin
+    reset;
+    Left(0);
+    Top(0);
+    Align(alBottom);
+    BevelEdges([beTop]);
+    BevelKind(bkTile);
+    BevelOuter(bvNone);
+    Height(60);
+  end;
+end;
+
+procedure Director.makeHeaderPanel(builder: builder);
+begin
+  with builder do
+  begin
+    reset;
+    Left(0);
+    Top(0);
+    Caption('123');
+    Align(alTop);
+    Alignment(taLeftJustify);
+    BevelEdges([beBottom]);
+    BevelKind(bkTile);
+    BevelOuter(bvNone);
+    BorderWidth(20);
+    Color(clWhite);
+    Height(60);
+    FontStyle([fsBold]);
+  end;
+end;
+
+procedure Director.makeNextButton(builder: builder);
+begin
+  with builder do
+  begin
+    reset;
+    Left(300);
+    Top(19);
+    Caption('Next >');
+    onClick(NotifyEvent);
+  end;
+end;
+
+procedure Director.NotifyEvent(Sender: TObject);
+begin
+//
 end;
 
 end.
