@@ -4,10 +4,10 @@ interface
 
 uses
   BuilderUnit,
-  ContentUnit {Content},
-  Graphics {TColor},
-  System.Classes {TAlignment},
-  Vcl.Controls {TAlign},
+  ContentUnit {Content} ,
+  Graphics {TColor} ,
+  System.Classes {TAlignment} ,
+  Vcl.Controls {TAlign} ,
   System.Generics.Collections {TDictionary};
 
 type
@@ -15,6 +15,7 @@ type
   private
     /// <link>aggregation</link>
     builder: builder;
+    doc: TDictionary<String, String>;
     procedure NotifyEvent(Sender: TObject);
   public
     procedure makeNextButton(builder: builder);
@@ -22,16 +23,17 @@ type
     procedure makeFooterPanel(builder: builder);
     procedure makeContentPanel(builder: builder);
   published
-    constructor create;
+    constructor create(doc: TDictionary<String, String>);
   end;
 
 implementation
 
 { Director }
 
-constructor Director.create;
+constructor Director.create(doc: TDictionary<String, String>);
 begin
-  //
+  self.doc := TDictionary<String, String>.create;
+  self.doc := doc;
 end;
 
 procedure Director.makeContentPanel(builder: builder);
@@ -68,7 +70,7 @@ begin
     reset;
     Left(0);
     Top(0);
-    Caption('123');
+    Caption(doc['title']);
     Align(alTop);
     Alignment(taLeftJustify);
     BevelEdges([beBottom]);
@@ -95,7 +97,7 @@ end;
 
 procedure Director.NotifyEvent(Sender: TObject);
 begin
-//
+  //
 end;
 
 end.

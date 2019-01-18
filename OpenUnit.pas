@@ -42,7 +42,7 @@ begin
   State:= Labs.Create;
   doc:=State.getDoc;
 
-  Director1 := Director.create();
+  Director1 := Director.create(doc);
 
   Builder4 := PanelBuilder.create;
   Director1.makeContentPanel(Builder4);
