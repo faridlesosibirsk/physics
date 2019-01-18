@@ -1,4 +1,4 @@
-unit OpenPhysicsUnit;
+unit DocumentUnit;
 
 interface
 
@@ -8,7 +8,7 @@ uses
   System.Generics.Collections {TDictionary};
 
 type
-  OpenPhysics = class
+  Document = class
   private
     /// <link>aggregation</link>
     state: state;
@@ -23,17 +23,17 @@ implementation
 
 { OpenPhysics }
 
-procedure OpenPhysics.ChangeLab(state: state);
+procedure Document.ChangeLab(state: state);
 begin
   state := state;
 end;
 
-constructor OpenPhysics.create;
+constructor Document.create;
 begin
   state := Content.create;
 end;
 
-function OpenPhysics.getLab: TDictionary<String, String>;
+function Document.getLab: TDictionary<String, String>;
 begin
   result := state.getLab;
 
