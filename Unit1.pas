@@ -9,7 +9,6 @@ uses
 
 type
   TForm1 = class(TForm)
-    Button1: TButton;
   private
     /// <link>aggregation</link>
     Physics1: Physics;
