@@ -86,6 +86,40 @@
 				<Form>Form1</Form>
 				<FormType>dfm</FormType>
 			</DCCReference>
+			<DCCReference Include="PhisicsUnit.pas"/>
+			<DCCReference Include="DirectorUnit.pas"/>
+			<DCCReference Include="BuilderUnit.pas"/>
+			<DCCReference Include="PanelUnit.pas"/>
+			<DCCReference Include="ButtonUnit.pas"/>
+			<DCCReference Include="LaboratoryUnit.pas"/>
+			<DCCReference Include="StrategyUnit.pas"/>
+			<DCCReference Include="Lab1Unit.pas"/>
+			<DCCReference Include="Lab2Unit.pas"/>
+			<None Include="ModelSupport_Project1\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\default.txvpck"/>
+			<None Include="ModelSupport_Project1\Unit1\default.txvpck"/>
+			<None Include="ModelSupport_Project1\Project1\default.txvpck"/>
+			<None Include="ModelSupport_Project1\Unit1\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\Unit2\default.txvpck"/>
+			<None Include="ModelSupport_Project1\PanelUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\PhisicsUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\Unit2\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\BuilderUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\DirectorUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\DirectorUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\PanelUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\ButtonUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\BuilderUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\ButtonUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\PhisicsUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\LaboratoryUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\LaboratoryUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\Lab1Unit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\Lab2Unit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\Lab1Unit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\Lab2Unit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\StrategyUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\StrategyUnit\default.txvpck"/>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>
@@ -139,6 +173,7 @@
 					<Platform value="Win64">False</Platform>
 					<Platform value="Win32">True</Platform>
 				</Platforms>
+				<ModelSupport>True</ModelSupport>
 			</BorlandProject>
 			<ProjectFileVersion>12</ProjectFileVersion>
 		</ProjectExtensions>
