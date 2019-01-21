@@ -3,23 +3,25 @@ unit LaboratoryUnit;
 interface
 
 uses
-  System.Generics.Collections {TDictionary},
+  laboratoriesUnit {laboratories} ,
+  System.Generics.Collections {TDictionary} ,
   Lab1Unit {Lab1} ,
   Lab2Unit {Lab2} ,
   ContentUnit {Content} ,
-  StrategyUnit {Strategy} ;
+  StrategyUnit {Strategy};
 
 type
-  Laboratory = class
+
+  Laboratory = class(TInterfacedObject, laboratories)
   private
     /// <link>aggregation</link>
     Strategy1: Strategy;
-    procedure setState(Strategy1: Strategy);
   public
     function db: TDictionary<String, String>;
     procedure setLab1;
     procedure setLab2;
     procedure setContent;
+    procedure setState(Strategy1: Strategy);
   published
     constructor create;
   end;
@@ -30,7 +32,7 @@ implementation
 
 constructor Laboratory.create;
 begin
-  //Strategy1 := Lab1.create;
+  // Strategy1 := Lab1.create;
   Strategy1 := Content.create;
 end;
 

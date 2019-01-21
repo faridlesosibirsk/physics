@@ -3,6 +3,7 @@ unit DirectorUnit;
 interface
 
 uses
+  LaboratoriesUnit {Laboratories} ,
   LaboratoryUnit,
   Graphics {TColor} ,
   PanelUnit {Panel} ,
@@ -24,7 +25,7 @@ type
     Builder1: TDictionary<String, Builder>;
     Panel1: TPanel;
     /// <link>aggregation</link>
-    Laboratory1: Laboratory;
+    Laboratory1: Laboratories;
     procedure AssignedPanel1;
     procedure Lab1Click(Sender: TObject);
     procedure Lab2Click(Sender: TObject);

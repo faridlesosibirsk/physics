@@ -14,7 +14,8 @@ uses
   Lab2Unit in 'Lab2Unit.pas',
   ContentUnit in 'ContentUnit.pas',
   ScrollBoxUnit in 'ScrollBoxUnit.pas',
-  SplitterUnit in 'SplitterUnit.pas';
+  SplitterUnit in 'SplitterUnit.pas',
+  laboratoriesUnit in 'laboratoriesUnit.pas';
 
 {$R *.res}
 
