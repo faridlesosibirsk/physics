@@ -11,7 +11,10 @@ uses
   LaboratoryUnit in 'LaboratoryUnit.pas',
   StrategyUnit in 'StrategyUnit.pas',
   Lab1Unit in 'Lab1Unit.pas',
-  Lab2Unit in 'Lab2Unit.pas';
+  Lab2Unit in 'Lab2Unit.pas',
+  ContentUnit in 'ContentUnit.pas',
+  ScrollBoxUnit in 'ScrollBoxUnit.pas',
+  SplitterUnit in 'SplitterUnit.pas';
 
 {$R *.res}
 

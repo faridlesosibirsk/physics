@@ -26,6 +26,9 @@ type
     procedure Color(Color: TColor);
     procedure BevelKind(BevelKind: TBevelKind);
     procedure BevelEdges(BevelEdges: TBevelEdges);
+    procedure Width(Width: Integer);
+    procedure Left(Left: Integer);
+    procedure WordWrap(WordWrap: Boolean);
   end;
 
 implementation
@@ -77,6 +80,11 @@ begin
   p.Height := Height;
 end;
 
+procedure Panel.Left(Left: Integer);
+begin
+  p.Left:=Left;
+end;
+
 procedure Panel.onClick(onClick1: TNotifyEvent);
 begin
   p.onClick := onClick1;
@@ -90,6 +98,16 @@ end;
 procedure Panel.reset;
 begin
   p := TPanel.Create(nil);
+end;
+
+procedure Panel.Width(Width: Integer);
+begin
+  p.Width := Width;
+end;
+
+procedure Panel.WordWrap(WordWrap: Boolean);
+begin
+//
 end;
 
 end.

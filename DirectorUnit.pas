@@ -7,6 +7,8 @@ uses
   Graphics {TColor} ,
   PanelUnit {Panel} ,
   ButtonUnit {Button} ,
+  ScrollBoxUnit {ScrollBox} ,
+  SplitterUnit {Splitter} ,
   Vcl.Controls {TAlign} ,
   Vcl.ExtCtrls {TPanel} ,
   BuilderUnit {Builder} ,
@@ -29,9 +31,11 @@ type
   public
     procedure makeLab2;
     procedure makeLab1;
+    procedure makeContext;
     function getPanel: TPanel;
     procedure BuildHeader(caption1: String);
     procedure BuildBottom(caption1: String);
+    procedure BuildContent(db: TDictionary<String, String>);
   published
     constructor create;
   end;
@@ -56,8 +60,9 @@ var
   Value: Builder;
 begin
   for Value in Builder1.Values do
-    Value.free;
+    if assigned(Value) then Value.parent(nil);
   Builder1.Clear;
+
   makeLab2;
 end;
 
@@ -76,6 +81,41 @@ begin
     BevelKind(bkTile);
     BevelEdges([beTop]);
     parent(Panel1);
+  end;
+end;
+
+procedure Director.BuildContent(db: TDictionary<String, String>);
+var
+  p: Panel;
+  Value: string;
+begin
+  AssignedPanel1;
+
+  p:=Panel.create;
+  Builder1.AddOrSetValue('Content', p);
+  with Builder1['Content'] do
+  begin
+    reset;
+    Align(alLeft);
+    BevelOuter(bvNone);
+    Width(300);
+    parent(Panel1);
+  end;
+
+  Builder1.AddOrSetValue('Splitter', Splitter.create);
+  with Builder1['Splitter'] do
+  begin
+    reset;
+    Left(300);
+    parent(Panel1);
+  end;
+
+  Builder1.AddOrSetValue('ScrollBox', ScrollBox.create);
+  with Builder1['ScrollBox'] do
+  begin
+    reset;
+    Align(alClient);
+    parent(p.getResult);
   end;
 end;
 
@@ -102,7 +142,8 @@ constructor Director.create;
 begin
   Laboratory1 := Laboratory.create;
   Builder1 := TDictionary<String, Builder>.create;
-  makeLab1;
+  //makeLab1;
+  makeContext;
 end;
 
 function Director.getPanel: TPanel;
@@ -111,18 +152,26 @@ begin
   result := Panel1;
 end;
 
+procedure Director.makeContext;
+begin
+  Laboratory1.setContent;
+  BuildHeader(Laboratory1.db['title']);
+  BuildContent(Laboratory1.db);
+  BuildBottom(Laboratory1.db['title']);
+end;
+
 procedure Director.makeLab1;
 begin
   Laboratory1.setLab1;
-  BuildHeader(Laboratory1.getCaption);
-  BuildBottom(Laboratory1.getCaption);
+  BuildHeader(Laboratory1.db['title']);
+  BuildBottom(Laboratory1.db['title']);
 end;
 
 procedure Director.makeLab2;
 begin
   Laboratory1.setLab2;
-  BuildHeader(Laboratory1.getCaption);
-  BuildBottom(Laboratory1.getCaption);
+  BuildHeader(Laboratory1.db['title']);
+  BuildBottom(Laboratory1.db['title']);
 end;
 
 procedure Director.Lab2Click(Sender: TObject);
@@ -130,7 +179,7 @@ var
   Value: Builder;
 begin
   for Value in Builder1.Values do
-    Value.free;
+    if assigned(Value) then Value.parent(nil);
   Builder1.Clear;
   makeLab1;
 end;

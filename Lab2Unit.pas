@@ -3,22 +3,32 @@ unit Lab2Unit;
 interface
 
 uses
-  StrategyUnit;
+  StrategyUnit {Strategy} ,
+  System.Generics.Collections {TDictionary};
 
 type
   Lab2 = class(TInterfacedObject, Strategy)
   private
+    db1: TDictionary<String, String>;
   public
-    function getCaption: String;
+    function db: TDictionary<String, String>;
+  published
+    constructor create;
   end;
 
 implementation
 
 { Lab2 }
 
-function Lab2.getCaption: String;
+constructor Lab2.create;
 begin
-  result := 'Lab2';
+  db1 := TDictionary<String, String>.create;
+end;
+
+function Lab2.db: TDictionary<String, String>;
+begin
+  db1.AddOrSetValue('title', 'Лабораторная работа №2');
+  result := db1;
 end;
 
 end.

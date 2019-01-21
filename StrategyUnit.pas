@@ -2,9 +2,13 @@ unit StrategyUnit;
 
 interface
 
+uses
+  System.Generics.Collections {TDictionary};
+
 type
   Strategy = interface
-    function getCaption: String;
+    function db: TDictionary<String, String>;
+    //procedure free;
   end;
 
 implementation

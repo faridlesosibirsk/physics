@@ -26,6 +26,9 @@ type
     procedure Color(Color: TColor);
     procedure BevelKind(BevelKind: TBevelKind);
     procedure BevelEdges(BevelEdges: TBevelEdges);
+    procedure Width(Width: Integer);
+    procedure Left(Left: Integer);
+    procedure WordWrap(WordWrap: Boolean);
   end;
 
 implementation
@@ -77,6 +80,11 @@ begin
   b.Height := Height;
 end;
 
+procedure Button.Left(Left: Integer);
+begin
+  b.Left:=Left;
+end;
+
 procedure Button.onClick(onClick1: TNotifyEvent);
 begin
   b.onClick := onClick1;
@@ -90,6 +98,16 @@ end;
 procedure Button.reset;
 begin
   b := TButton.Create(nil);
+end;
+
+procedure Button.Width(Width: Integer);
+begin
+  b.Width := Width;
+end;
+
+procedure Button.WordWrap(WordWrap: Boolean);
+begin
+//
 end;
 
 end.

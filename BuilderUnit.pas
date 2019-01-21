@@ -20,6 +20,9 @@ type
     procedure Color(Color: TColor);
     procedure BevelKind(BevelKind: TBevelKind);
     procedure BevelEdges(BevelEdges: TBevelEdges);
+    procedure Width(Width: Integer);
+    procedure Left(Left: Integer);
+    procedure WordWrap(WordWrap: Boolean);
   end;
 
 implementation

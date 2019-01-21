@@ -95,6 +95,9 @@
 			<DCCReference Include="StrategyUnit.pas"/>
 			<DCCReference Include="Lab1Unit.pas"/>
 			<DCCReference Include="Lab2Unit.pas"/>
+			<DCCReference Include="ContentUnit.pas"/>
+			<DCCReference Include="ScrollBoxUnit.pas"/>
+			<DCCReference Include="SplitterUnit.pas"/>
 			<None Include="ModelSupport_Project1\default.txaPackage"/>
 			<None Include="ModelSupport_Project1\default.txvpck"/>
 			<None Include="ModelSupport_Project1\Unit1\default.txvpck"/>
@@ -120,6 +123,12 @@
 			<None Include="ModelSupport_Project1\Lab2Unit\default.txvpck"/>
 			<None Include="ModelSupport_Project1\StrategyUnit\default.txaPackage"/>
 			<None Include="ModelSupport_Project1\StrategyUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\ContentUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\ContentUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\ScrollBoxUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\SplitterUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\ScrollBoxUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\SplitterUnit\default.txvpck"/>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>

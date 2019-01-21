@@ -3,9 +3,11 @@ unit LaboratoryUnit;
 interface
 
 uses
-  Lab1Unit,
-  Lab2Unit,
-  StrategyUnit;
+  System.Generics.Collections {TDictionary},
+  Lab1Unit {Lab1} ,
+  Lab2Unit {Lab2} ,
+  ContentUnit {Content} ,
+  StrategyUnit {Strategy} ;
 
 type
   Laboratory = class
@@ -14,9 +16,10 @@ type
     Strategy1: Strategy;
     procedure setState(Strategy1: Strategy);
   public
-    function getCaption: String;
+    function db: TDictionary<String, String>;
     procedure setLab1;
     procedure setLab2;
+    procedure setContent;
   published
     constructor create;
   end;
@@ -27,12 +30,18 @@ implementation
 
 constructor Laboratory.create;
 begin
-  Strategy1 := Lab1.create;
+  //Strategy1 := Lab1.create;
+  Strategy1 := Content.create;
 end;
 
-function Laboratory.getCaption: String;
+function Laboratory.db: TDictionary<String, String>;
 begin
-  result := Strategy1.getCaption;
+  result := Strategy1.db;
+end;
+
+procedure Laboratory.setContent;
+begin
+  setState(Content.create);
 end;
 
 procedure Laboratory.setLab1;

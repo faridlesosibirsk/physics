@@ -5,7 +5,7 @@ interface
 uses
   DirectorUnit {Director} ,
   PhisicsUnit {Phisics} ,
-  Vcl.Forms, System.Classes, Vcl.Controls, Vcl.ExtCtrls {Forms};
+  Vcl.Forms, System.Classes, Vcl.Controls, Vcl.ExtCtrls, Vcl.StdCtrls {Forms};
 
 type
   TForm1 = class(TForm)
