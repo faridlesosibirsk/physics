@@ -10,7 +10,7 @@ type
   Builder = interface
     procedure free;
     procedure header;
-    procedure main;
+    procedure main(Lab1: TNotifyEvent);
     procedure nav;
     procedure section;
     procedure aside;

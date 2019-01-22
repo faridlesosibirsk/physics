@@ -40,7 +40,7 @@ begin
   with Builder1 do
   begin
     header;
-    main;
+    main(toLab1);
     footer(toLab1);
     install(WinControl);
   end;
@@ -53,7 +53,7 @@ begin
   with Builder1 do
   begin
     header;
-    main;
+    main(toLab1);
     footer(toContent);
     install(WinControl);
   end;

@@ -17,7 +17,6 @@ type
   ContentBuilder = class(TInterfacedObject, Builder)
   private
     headerPanel, footerPanel, mainPanel: TPanel;
-    footerButtonNext: TButton;
     ScrollBox1: TScrollBox;
     item: TList<TPanel>;
     { TODO : add ... }
@@ -27,7 +26,7 @@ type
     procedure free;
     procedure install(WinControl: TWinControl);
     procedure header;
-    procedure main;
+    procedure main(Lab1: TNotifyEvent);
     procedure nav;
     procedure section;
     procedure aside;
@@ -56,7 +55,6 @@ begin
   headerPanel := TPanel.create(nil);
   footerPanel := TPanel.create(nil);
   mainPanel := TPanel.create(nil);
-  footerButtonNext := TButton.create(nil);
   ScrollBox1 := TScrollBox.create(nil);
   item := TList<TPanel>.create;
   { TODO : add ... }
@@ -71,13 +69,6 @@ begin
     BevelKind := bkTile;
     BevelOuter := bvNone;
   end;
-  with footerButtonNext do
-  begin
-    Top := 8;
-    Left := 83;
-    Caption := 'Next >';
-    OnClick := Next;
-  end;
 end;
 
 procedure ContentBuilder.free;
@@ -87,8 +78,6 @@ begin
     item.free;
   if assigned(ScrollBox1) then
     ScrollBox1.free;
-  if assigned(footerButtonNext) then
-    footerButtonNext.free;
   if assigned(headerPanel) then
     headerPanel.free;
   if assigned(footerPanel) then
@@ -119,18 +108,16 @@ begin
   headerPanel.Parent := WinControl;
   footerPanel.Parent := WinControl;
   mainPanel.Parent := WinControl;
-  footerButtonNext.Parent := footerPanel;
   ScrollBox1.Parent := mainPanel;
   for p in item do
     p.Parent := ScrollBox1;
   { TODO : add ... }
 end;
 
-procedure ContentBuilder.main;
+procedure ContentBuilder.main(Lab1: TNotifyEvent);
 var
   p: TPanel;
   i: integer;
-
 begin
   with mainPanel do
   begin
@@ -142,7 +129,6 @@ begin
   begin
     Align := alClient;
     BorderStyle := bsNone;
-
   end;
   for i := 1 to 14 do
     item.Add(TPanel.create(nil));
@@ -151,13 +137,14 @@ begin
     with p do
     begin
       i:=i+1;
-      Align := alTop;
+      Align := alBottom;
       Caption := Content.item[i];
       Alignment := taLeftJustify;
+      if i=2 then
+        OnClick:=Lab1;
       BorderWidth := 10;
       BevelOuter := bvNone;
     end;
-
   { TODO : add ... }
 end;
 

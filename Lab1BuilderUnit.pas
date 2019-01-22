@@ -3,6 +3,7 @@ unit Lab1BuilderUnit;
 interface
 
 uses
+  System.Generics.Collections {TDictionary},
   Lab1Unit {Lab1} ,
   classes {TNotifyEvent} ,
   Graphics {TColor} ,
@@ -22,7 +23,7 @@ type
     procedure free;
     procedure install(WinControl: TWinControl);
     procedure header;
-    procedure main;
+    procedure main(Lab1: TNotifyEvent);
     procedure nav;
     procedure section;
     procedure aside;
@@ -47,7 +48,13 @@ begin
 end;
 
 constructor Lab1Builder.create;
+var
+  l: TList<String>;
+  I: Integer;
 begin
+  l:= TList<String>.create;
+  for I := 1 to 2 do
+    l.Add(Lab1.item[I]);
   headerPanel := TPanel.create(nil);
   footerPanel := TPanel.create(nil);
   mainPanel := TPanel.create(nil);
@@ -93,7 +100,7 @@ begin
     BevelEdges := [beBottom];
     BevelKind := bkSoft;
     BevelOuter := bvNone;
-    Caption := Lab11.title;
+    Caption := Lab11.title+' '+Lab1.caption;
     Color := clWhite;
   end;
 end;
@@ -106,13 +113,14 @@ begin
   footerButtonBack.Parent := footerPanel;
 end;
 
-procedure Lab1Builder.main;
+procedure Lab1Builder.main(Lab1: TNotifyEvent);
 begin
   with mainPanel do
   begin
     Align := alClient;
     BevelOuter := bvNone;
   end;
+
 end;
 
 procedure Lab1Builder.nav;
