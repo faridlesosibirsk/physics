@@ -4,18 +4,17 @@ uses
   Vcl.Forms,
   Unit1 in 'Unit1.pas' {Form1},
   PhisicsUnit in 'PhisicsUnit.pas',
-  DirectorUnit in 'DirectorUnit.pas',
+  StudentUnit in 'StudentUnit.pas',
   BuilderUnit in 'BuilderUnit.pas',
-  PanelUnit in 'PanelUnit.pas',
+  Lab1BuilderUnit in 'Lab1BuilderUnit.pas',
   ButtonUnit in 'ButtonUnit.pas',
-  LaboratoryUnit in 'LaboratoryUnit.pas',
-  StrategyUnit in 'StrategyUnit.pas',
   Lab1Unit in 'Lab1Unit.pas',
-  Lab2Unit in 'Lab2Unit.pas',
   ContentUnit in 'ContentUnit.pas',
   ScrollBoxUnit in 'ScrollBoxUnit.pas',
   SplitterUnit in 'SplitterUnit.pas',
-  laboratoriesUnit in 'laboratoriesUnit.pas';
+  PhisicaUnit in 'PhisicaUnit.pas',
+  RoomUnit in 'RoomUnit.pas',
+  ContentBuilderUnit in 'ContentBuilderUnit.pas';
 
 {$R *.res}
 

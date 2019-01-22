@@ -7,7 +7,7 @@ uses
 
 type
   Phisics = interface
-    function getPanel: TPanel;
+    function open: TPanel;
   end;
 
 implementation

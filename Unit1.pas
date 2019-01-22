@@ -3,15 +3,16 @@ unit Unit1;
 interface
 
 uses
-  DirectorUnit {Director} ,
+  PhisicaUnit {Phisica} ,
   PhisicsUnit {Phisics} ,
   Vcl.Forms, System.Classes, Vcl.Controls, Vcl.ExtCtrls, Vcl.StdCtrls {Forms};
 
 type
   TForm1 = class(TForm)
+    Panel1: TPanel;
   private
     /// <link>aggregation</link>
-    Phisica: Phisics;
+    Phisica1: Phisics;
   public
   published
     procedure FormCreate(Sender: TObject);
@@ -27,8 +28,9 @@ implementation
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-  Phisica := Director.create;
-  Phisica.getPanel.Parent := self;
+  Phisica1 := Phisica.create;
+  Phisica1.open.Parent := self;
+
 end;
 
 end.

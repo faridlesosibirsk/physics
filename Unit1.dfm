@@ -14,4 +14,15 @@ object Form1: TForm1
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
+  object Panel1: TPanel
+    Left = 224
+    Top = 64
+    Width = 185
+    Height = 145
+    Alignment = taLeftJustify
+    BevelOuter = bvNone
+    BorderWidth = 10
+    Caption = 'Panel1'
+    TabOrder = 0
+  end
 end

@@ -3,26 +3,20 @@ unit BuilderUnit;
 interface
 
 uses
-  Graphics {TColor} ,
-  Vcl.Controls {TAlign} ,
-  classes {TNotifyEvent};
+  classes {TNotifyEvent} ,
+  Vcl.Controls {TWinControl};
 
 type
   Builder = interface
-    procedure reset;
-    procedure parent(AOwner: TWinControl);
-    procedure onClick(onClick1: TNotifyEvent);
     procedure free;
-    procedure Align(Align: TAlign);
-    procedure Height(Height: Integer);
-    procedure Caption(Caption: String);
-    procedure BevelOuter(BevelOuter: TBevelCut);
-    procedure Color(Color: TColor);
-    procedure BevelKind(BevelKind: TBevelKind);
-    procedure BevelEdges(BevelEdges: TBevelEdges);
-    procedure Width(Width: Integer);
-    procedure Left(Left: Integer);
-    procedure WordWrap(WordWrap: Boolean);
+    procedure header;
+    procedure main;
+    procedure nav;
+    procedure section;
+    procedure aside;
+    procedure address;
+    procedure footer(Next: TNotifyEvent);
+    procedure install(WinControl: TWinControl);
   end;
 
 implementation

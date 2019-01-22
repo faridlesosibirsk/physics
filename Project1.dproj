@@ -87,18 +87,17 @@
 				<FormType>dfm</FormType>
 			</DCCReference>
 			<DCCReference Include="PhisicsUnit.pas"/>
-			<DCCReference Include="DirectorUnit.pas"/>
+			<DCCReference Include="StudentUnit.pas"/>
 			<DCCReference Include="BuilderUnit.pas"/>
-			<DCCReference Include="PanelUnit.pas"/>
+			<DCCReference Include="Lab1BuilderUnit.pas"/>
 			<DCCReference Include="ButtonUnit.pas"/>
-			<DCCReference Include="LaboratoryUnit.pas"/>
-			<DCCReference Include="StrategyUnit.pas"/>
 			<DCCReference Include="Lab1Unit.pas"/>
-			<DCCReference Include="Lab2Unit.pas"/>
 			<DCCReference Include="ContentUnit.pas"/>
 			<DCCReference Include="ScrollBoxUnit.pas"/>
 			<DCCReference Include="SplitterUnit.pas"/>
-			<DCCReference Include="laboratoriesUnit.pas"/>
+			<DCCReference Include="PhisicaUnit.pas"/>
+			<DCCReference Include="RoomUnit.pas"/>
+			<DCCReference Include="ContentBuilderUnit.pas"/>
 			<None Include="ModelSupport_Project1\default.txaPackage"/>
 			<None Include="ModelSupport_Project1\default.txvpck"/>
 			<None Include="ModelSupport_Project1\Unit1\default.txvpck"/>
@@ -119,9 +118,7 @@
 			<None Include="ModelSupport_Project1\LaboratoryUnit\default.txaPackage"/>
 			<None Include="ModelSupport_Project1\LaboratoryUnit\default.txvpck"/>
 			<None Include="ModelSupport_Project1\Lab1Unit\default.txaPackage"/>
-			<None Include="ModelSupport_Project1\Lab2Unit\default.txaPackage"/>
 			<None Include="ModelSupport_Project1\Lab1Unit\default.txvpck"/>
-			<None Include="ModelSupport_Project1\Lab2Unit\default.txvpck"/>
 			<None Include="ModelSupport_Project1\StrategyUnit\default.txaPackage"/>
 			<None Include="ModelSupport_Project1\StrategyUnit\default.txvpck"/>
 			<None Include="ModelSupport_Project1\ContentUnit\default.txaPackage"/>
@@ -132,6 +129,20 @@
 			<None Include="ModelSupport_Project1\SplitterUnit\default.txvpck"/>
 			<None Include="ModelSupport_Project1\laboratoriesUnit\default.txaPackage"/>
 			<None Include="ModelSupport_Project1\laboratoriesUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\Lab1BuilderUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\Lab1BuilderUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\PhisicaUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\PhisicaUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\RoomUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\RoomUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\StudentUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\StudentUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\Lab1RoomUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\Lab1RoomUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\ContentRoomUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\ContentBuilderUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\ContentRoomUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\ContentBuilderUnit\default.txvpck"/>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>
