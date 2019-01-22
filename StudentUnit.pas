@@ -3,21 +3,27 @@ unit StudentUnit;
 interface
 
 uses
+  StudentsUnit {Students} ,
+  LabsContentUnit {LabsContent} ,
+  Labs1Unit {Labs1} ,
+  LabsUnit {Labs} ,
   Vcl.Controls {TWinControl} ,
   Vcl.ExtCtrls {TPanel} ,
   Lab1BuilderUnit {Lab1Builder} ,
   ContentBuilderUnit {ContentBuilder} ,
-  RoomUnit {Room} ,
+  //RoomsUnit {Rooms} ,
   BuilderUnit {Builder};
 
 type
 
-  Student = class(TInterfacedObject, room)
+  Student = class(TInterfacedObject, Students)
   private
     /// <link>aggregation</link>
     Builder1: Builder;
     // Builder1: TDictionary<String, Builder>;
     WinControl: TWinControl;
+    /// <link>aggregation</link>
+    model: Labs;
     procedure toLab1(Sender: TObject);
     procedure toContent(Sender: TObject);
   public
@@ -34,8 +40,9 @@ implementation
 procedure Student.Content(WinControl: TWinControl);
 begin
   self.WinControl := WinControl;
+  model:= LabsContent.create;
   if assigned(Builder1) then
-    Builder1.free;
+    Builder1.free(model);
   Builder1 := ContentBuilder.create;
   with Builder1 do
   begin
@@ -48,7 +55,8 @@ end;
 
 procedure Student.Lab1(WinControl: TWinControl);
 begin
-  Builder1.free;
+  model:= Labs1.create;
+  Builder1.free(model);
   Builder1 := Lab1Builder.create;
   with Builder1 do
   begin

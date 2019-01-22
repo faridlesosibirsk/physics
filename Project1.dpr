@@ -10,8 +10,13 @@ uses
   Lab1Unit in 'Lab1Unit.pas',
   ContentUnit in 'ContentUnit.pas',
   PhisicaUnit in 'PhisicaUnit.pas',
+  RoomsUnit in 'RoomsUnit.pas',
+  ContentBuilderUnit in 'ContentBuilderUnit.pas',
+  LabsUnit in 'LabsUnit.pas',
+  Labs1Unit in 'Labs1Unit.pas',
+  LabsContentUnit in 'LabsContentUnit.pas',
   RoomUnit in 'RoomUnit.pas',
-  ContentBuilderUnit in 'ContentBuilderUnit.pas';
+  StudentsUnit in 'StudentsUnit.pas';
 
 {$R *.res}
 

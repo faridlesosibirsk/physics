@@ -3,12 +3,13 @@ unit BuilderUnit;
 interface
 
 uses
+  LabsUnit {Labs} ,
   classes {TNotifyEvent} ,
   Vcl.Controls {TWinControl};
 
 type
   Builder = interface
-    procedure free;
+    procedure free(model: Labs);
     procedure header;
     procedure main(Lab1: TNotifyEvent);
     procedure nav;

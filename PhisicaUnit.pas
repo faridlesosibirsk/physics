@@ -4,6 +4,7 @@ interface
 
 uses
   StudentUnit {Student} ,
+  RoomsUnit {Rooms} ,
   RoomUnit {Room} ,
   Vcl.Controls {TAlign} ,
   PhisicsUnit {Phisics} ,
@@ -14,7 +15,7 @@ type
   private
     Panel1: TPanel;
     /// <link>aggregation</link>
-    Room1: Room;
+    Room1: Rooms;
     procedure AssignedPanel1;
   public
     function open: TPanel;
@@ -39,7 +40,7 @@ end;
 
 constructor Phisica.create;
 begin
-  Room1 := Student.create;
+  Room1 := Room.create;
 end;
 
 function Phisica.open: TPanel;

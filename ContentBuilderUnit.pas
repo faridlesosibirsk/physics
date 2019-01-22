@@ -3,6 +3,7 @@ unit ContentBuilderUnit;
 interface
 
 uses
+  LabsUnit {Labs} ,
   System.Generics.Collections {TDictionary} ,
   Vcl.Forms {ScrollBox1} ,
   ContentUnit {Content} ,
@@ -23,7 +24,7 @@ type
     /// <link>aggregation</link>
     Content1: Content;
   public
-    procedure free;
+    procedure free(model: Labs);
     procedure install(WinControl: TWinControl);
     procedure header;
     procedure main(Lab1: TNotifyEvent);
@@ -71,7 +72,7 @@ begin
   end;
 end;
 
-procedure ContentBuilder.free;
+procedure ContentBuilder.free(model: Labs);
 begin
   { TODO : add ... }
   if assigned(item) then

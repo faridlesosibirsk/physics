@@ -3,6 +3,7 @@ unit Lab1BuilderUnit;
 interface
 
 uses
+  LabsUnit {Labs} ,
   System.Generics.Collections {TDictionary},
   Lab1Unit {Lab1} ,
   classes {TNotifyEvent} ,
@@ -20,7 +21,7 @@ type
     /// <link>aggregation</link>
     Lab11: Lab1;
   public
-    procedure free;
+    procedure free(model: Labs);
     procedure install(WinControl: TWinControl);
     procedure header;
     procedure main(Lab1: TNotifyEvent);
@@ -78,7 +79,7 @@ begin
   end;
 end;
 
-procedure Lab1Builder.free;
+procedure Lab1Builder.free(model: Labs);
 begin
   if assigned(footerButtonBack) then
     footerButtonBack.free;

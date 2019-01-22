@@ -93,8 +93,13 @@
 			<DCCReference Include="Lab1Unit.pas"/>
 			<DCCReference Include="ContentUnit.pas"/>
 			<DCCReference Include="PhisicaUnit.pas"/>
-			<DCCReference Include="RoomUnit.pas"/>
+			<DCCReference Include="RoomsUnit.pas"/>
 			<DCCReference Include="ContentBuilderUnit.pas"/>
+			<DCCReference Include="LabsUnit.pas"/>
+			<DCCReference Include="Labs1Unit.pas"/>
+			<DCCReference Include="LabsContentUnit.pas"/>
+			<DCCReference Include="RoomUnit.pas"/>
+			<DCCReference Include="StudentsUnit.pas"/>
 			<None Include="ModelSupport_Project1\default.txaPackage"/>
 			<None Include="ModelSupport_Project1\default.txvpck"/>
 			<None Include="ModelSupport_Project1\Unit1\default.txvpck"/>
@@ -124,8 +129,6 @@
 			<None Include="ModelSupport_Project1\Lab1BuilderUnit\default.txvpck"/>
 			<None Include="ModelSupport_Project1\PhisicaUnit\default.txaPackage"/>
 			<None Include="ModelSupport_Project1\PhisicaUnit\default.txvpck"/>
-			<None Include="ModelSupport_Project1\RoomUnit\default.txaPackage"/>
-			<None Include="ModelSupport_Project1\RoomUnit\default.txvpck"/>
 			<None Include="ModelSupport_Project1\StudentUnit\default.txaPackage"/>
 			<None Include="ModelSupport_Project1\StudentUnit\default.txvpck"/>
 			<None Include="ModelSupport_Project1\Lab1RoomUnit\default.txaPackage"/>
@@ -134,6 +137,17 @@
 			<None Include="ModelSupport_Project1\ContentBuilderUnit\default.txaPackage"/>
 			<None Include="ModelSupport_Project1\ContentRoomUnit\default.txvpck"/>
 			<None Include="ModelSupport_Project1\ContentBuilderUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\LabsUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\Labs1Unit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\Labs1Unit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\LabsContentUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\LabsContentUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\RoomsUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\RoomsUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\RoomUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\RoomUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\StudentsUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\StudentsUnit\default.txvpck"/>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>
