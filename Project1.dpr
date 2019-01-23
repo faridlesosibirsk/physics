@@ -6,17 +6,13 @@ uses
   PhisicsUnit in 'PhisicsUnit.pas',
   StudentUnit in 'StudentUnit.pas',
   BuilderUnit in 'BuilderUnit.pas',
-  Lab1BuilderUnit in 'Lab1BuilderUnit.pas',
-  Lab1Unit in 'Lab1Unit.pas',
-  ContentUnit in 'ContentUnit.pas',
+  TheoryUnit in 'TheoryUnit.pas',
   PhisicaUnit in 'PhisicaUnit.pas',
   RoomsUnit in 'RoomsUnit.pas',
-  ContentBuilderUnit in 'ContentBuilderUnit.pas',
-  LabsUnit in 'LabsUnit.pas',
-  Labs1Unit in 'Labs1Unit.pas',
-  LabsContentUnit in 'LabsContentUnit.pas',
+  ContentUnit in 'ContentUnit.pas',
   RoomUnit in 'RoomUnit.pas',
-  StudentsUnit in 'StudentsUnit.pas';
+  StudentsUnit in 'StudentsUnit.pas',
+  LabsUnit in 'LabsUnit.pas';
 
 {$R *.res}
 

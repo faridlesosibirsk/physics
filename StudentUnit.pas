@@ -3,15 +3,12 @@ unit StudentUnit;
 interface
 
 uses
-  StudentsUnit {Students} ,
-  LabsContentUnit {LabsContent} ,
-  Labs1Unit {Labs1} ,
   LabsUnit {Labs} ,
+  StudentsUnit {Students} ,
   Vcl.Controls {TWinControl} ,
   Vcl.ExtCtrls {TPanel} ,
-  Lab1BuilderUnit {Lab1Builder} ,
-  ContentBuilderUnit {ContentBuilder} ,
-  //RoomsUnit {Rooms} ,
+  TheoryUnit {Theory} ,
+  ContentUnit {Content} ,
   BuilderUnit {Builder};
 
 type
@@ -23,12 +20,12 @@ type
     // Builder1: TDictionary<String, Builder>;
     WinControl: TWinControl;
     /// <link>aggregation</link>
-    model: Labs;
+    Labs1: Labs;
     procedure toLab1(Sender: TObject);
     procedure toContent(Sender: TObject);
   public
-    procedure Content(WinControl: TWinControl);
-    procedure Lab1(WinControl: TWinControl);
+    procedure getContent(WinControl: TWinControl);
+    procedure getTheory(WinControl: TWinControl);
   published
     constructor create;
   end;
@@ -37,13 +34,12 @@ implementation
 
 { Director }
 
-procedure Student.Content(WinControl: TWinControl);
+procedure Student.getContent(WinControl: TWinControl);
 begin
   self.WinControl := WinControl;
-  model:= LabsContent.create;
   if assigned(Builder1) then
-    Builder1.free(model);
-  Builder1 := ContentBuilder.create;
+    Builder1.free;
+  Builder1 := Content.create;
   with Builder1 do
   begin
     header;
@@ -53,11 +49,10 @@ begin
   end;
 end;
 
-procedure Student.Lab1(WinControl: TWinControl);
+procedure Student.getTheory(WinControl: TWinControl);
 begin
-  model:= Labs1.create;
-  Builder1.free(model);
-  Builder1 := Lab1Builder.create;
+  Builder1.free;
+  Builder1 := Theory.create;
   with Builder1 do
   begin
     header;
@@ -69,12 +64,12 @@ end;
 
 procedure Student.toContent(Sender: TObject);
 begin
-  Content(WinControl);
+  getContent(WinControl);
 end;
 
 procedure Student.toLab1(Sender: TObject);
 begin
-  Lab1(WinControl);
+  getTheory(WinControl);
 end;
 
 constructor Student.create;

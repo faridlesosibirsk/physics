@@ -8,8 +8,8 @@ uses
 type
 
   Students = interface
-    procedure Content(WinControl: TWinControl);
-    procedure Lab1(WinControl: TWinControl);
+    procedure getContent(WinControl: TWinControl);
+    procedure getTheory(WinControl: TWinControl);
   end;
 
 implementation

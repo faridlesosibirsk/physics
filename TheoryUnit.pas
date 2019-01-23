@@ -1,4 +1,4 @@
-unit ContentUnit;
+unit TheoryUnit;
 
 interface
 
@@ -13,11 +13,11 @@ uses
   BuilderUnit {Builder};
 
 type
-  Content = class(TInterfacedObject, Builder)
+  Theory = class(TInterfacedObject, Builder)
   private
     headerPanel, footerPanel, mainPanel: TPanel;
-    NextButton: TButton;
-    { TODO : add ... }
+    footerButtonBack: TButton;
+    { TODO : }
   public
     procedure free;
     procedure install(WinControl: TWinControl);
@@ -32,16 +32,16 @@ implementation
 
 { Panel }
 
-constructor Content.create;
+constructor Theory.create;
 begin
   headerPanel := TPanel.create(nil);
   footerPanel := TPanel.create(nil);
   mainPanel := TPanel.create(nil);
-  NextButton := TButton.create(nil);
-  { TODO : add ... }
+  footerButtonBack := TButton.create(nil);
+  { TODO : }
 end;
 
-procedure Content.footer(Next: TNotifyEvent);
+procedure Theory.footer(Next: TNotifyEvent);
 begin
   with footerPanel do
   begin
@@ -50,13 +50,22 @@ begin
     BevelKind := bkTile;
     BevelOuter := bvNone;
   end;
+  with footerButtonBack do
+  begin
+    Top := 8;
+    Caption := '< Back';
+    OnClick := Next;
+  end;
 end;
 
-procedure Content.free;
+procedure Theory.free;
+var
+  p: TPanel;
+  I: Integer;
 begin
   { TODO : add ... }
-  if assigned(NextButton) then
-    NextButton.free;
+  if assigned(footerButtonBack) then
+    footerButtonBack.free;
   if assigned(headerPanel) then
     headerPanel.free;
   if assigned(footerPanel) then
@@ -65,7 +74,7 @@ begin
     mainPanel.free;
 end;
 
-procedure Content.header;
+procedure Theory.header;
 begin
   with headerPanel do
   begin
@@ -75,39 +84,31 @@ begin
     BevelEdges := [beBottom];
     BevelKind := bkSoft;
     BevelOuter := bvNone;
-    Caption := 'Content header';
+    Caption := 'Theory header';
     Color := clWhite;
   end;
 end;
 
-procedure Content.install(WinControl: TWinControl);
-var
-  p: TPanel;
+procedure Theory.install(WinControl: TWinControl);
 begin
   headerPanel.Parent := WinControl;
   footerPanel.Parent := WinControl;
   mainPanel.Parent := WinControl;
-  NextButton.Parent := footerPanel;
-  { TODO : add ... }
+  footerButtonBack.Parent := footerPanel;
+  { TODO : }
 end;
 
-procedure Content.main(Lab1: TNotifyEvent);
+procedure Theory.main(Lab1: TNotifyEvent);
 var
   p: TPanel;
-  i: integer;
+  I: Integer;
 begin
   with mainPanel do
   begin
-    Align := alLeft;
+    Align := alClient;
     BevelOuter := bvNone;
-    Caption := 'Content main';
   end;
-  with NextButton do
-  begin
-    Caption := 'Next >';
-    OnClick:=Lab1;
-  end;
-  { TODO : add ... }
+  { TODO : }
 end;
 
 end.

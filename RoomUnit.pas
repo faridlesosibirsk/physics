@@ -27,7 +27,7 @@ implementation
 
 procedure Room.Content(WinControl: TWinControl);
 begin
-  Students1.Content(WinControl);
+  Students1.getContent(WinControl);
 end;
 
 constructor Room.create;
@@ -37,7 +37,7 @@ end;
 
 procedure Room.Lab1(WinControl: TWinControl);
 begin
-  Students1.Lab1(WinControl);
+  Students1.getTheory(WinControl);
 end;
 
 end.
