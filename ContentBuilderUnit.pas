@@ -133,12 +133,12 @@ begin
   end;
   for i := 1 to 14 do
     item.Add(TPanel.create(nil));
-  i := 0;
+  i := 15;
   for p in item do
     with p do
     begin
-      i:=i+1;
-      Align := alBottom;
+      i:=i-1;
+      Align := alTop;
       Caption := Content.item[i];
       Alignment := taLeftJustify;
       if i=2 then

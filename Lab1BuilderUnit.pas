@@ -6,6 +6,7 @@ uses
   LabsUnit {Labs} ,
   System.Generics.Collections {TDictionary},
   Lab1Unit {Lab1} ,
+  Vcl.Forms {ScrollBox1} ,
   classes {TNotifyEvent} ,
   Graphics {TColor} ,
   Vcl.Controls {TWinControl} ,
@@ -18,6 +19,8 @@ type
   private
     headerPanel, footerPanel, mainPanel: TPanel;
     footerButtonBack: TButton;
+    ScrollBox1: TScrollBox;
+    item: TList<TPanel>;
     /// <link>aggregation</link>
     Lab11: Lab1;
   public
@@ -60,6 +63,8 @@ begin
   footerPanel := TPanel.create(nil);
   mainPanel := TPanel.create(nil);
   footerButtonBack := TButton.create(nil);
+  ScrollBox1 := TScrollBox.create(nil);
+  item := TList<TPanel>.create;
 end;
 
 procedure Lab1Builder.footer(Next: TNotifyEvent);
@@ -81,6 +86,11 @@ end;
 
 procedure Lab1Builder.free(model: Labs);
 begin
+  { TODO : add ... }
+  if assigned(item) then
+    item.free;
+  if assigned(ScrollBox1) then
+    ScrollBox1.free;
   if assigned(footerButtonBack) then
     footerButtonBack.free;
   if assigned(headerPanel) then
@@ -101,27 +111,58 @@ begin
     BevelEdges := [beBottom];
     BevelKind := bkSoft;
     BevelOuter := bvNone;
-    Caption := Lab11.title+' '+Lab1.caption;
+    Caption := Lab11.title+' '+Lab11.caption;
     Color := clWhite;
   end;
 end;
 
 procedure Lab1Builder.install(WinControl: TWinControl);
+var
+  p: TPanel;
 begin
   headerPanel.Parent := WinControl;
   footerPanel.Parent := WinControl;
   mainPanel.Parent := WinControl;
   footerButtonBack.Parent := footerPanel;
+  ScrollBox1.Parent := mainPanel;
+  for p in item do
+    p.Parent := ScrollBox1;
 end;
 
 procedure Lab1Builder.main(Lab1: TNotifyEvent);
+var
+  p: TPanel;
+  i: integer;
 begin
   with mainPanel do
   begin
     Align := alClient;
     BevelOuter := bvNone;
   end;
-
+  with ScrollBox1 do
+  begin
+    Align := alClient;
+    BorderStyle := bsNone;
+    Width:=300;
+    HorzScrollBar.Visible:=true;
+    VertScrollBar.Visible:=true;
+  end;
+  for i := 1 to 44 do
+    item.Add(TPanel.create(nil));
+  i := 44+1;
+  for p in item do
+    with p do
+    begin
+      i:=i-1;
+      Align := alTop;
+      Caption := Lab11.item[i];
+      Alignment := taLeftJustify;
+      if i=2 then
+        OnClick:=Lab1;
+      BorderWidth := 10;
+      BevelOuter := bvNone;
+    end;
+  { TODO : add ... }
 end;
 
 procedure Lab1Builder.nav;
