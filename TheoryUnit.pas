@@ -3,8 +3,8 @@ unit TheoryUnit;
 interface
 
 uses
-  System.Generics.Collections {TDictionary} ,
-  Vcl.Forms {ScrollBox1} ,
+  LabsUnit {Labs} ,
+  ContentUnit {Content} ,
   classes {TNotifyEvent} ,
   Graphics {TColor} ,
   Vcl.Controls {TWinControl} ,
@@ -15,30 +15,32 @@ uses
 type
   Theory = class(TInterfacedObject, Builder)
   private
+    panel: TPanel;
     headerPanel, footerPanel, mainPanel: TPanel;
     footerButtonBack: TButton;
     { TODO : }
+    procedure render(panel: TPanel);
   public
     procedure free;
-    procedure install(WinControl: TWinControl);
     procedure header;
     procedure main(Lab1: TNotifyEvent);
     procedure footer(Next: TNotifyEvent);
   published
-    constructor create;
+    constructor create(p: TPanel);
   end;
 
 implementation
 
 { Panel }
 
-constructor Theory.create;
+constructor Theory.create(p: TPanel);
 begin
   headerPanel := TPanel.create(nil);
   footerPanel := TPanel.create(nil);
   mainPanel := TPanel.create(nil);
   footerButtonBack := TButton.create(nil);
   { TODO : }
+  render(p);
 end;
 
 procedure Theory.footer(Next: TNotifyEvent);
@@ -89,11 +91,11 @@ begin
   end;
 end;
 
-procedure Theory.install(WinControl: TWinControl);
+procedure Theory.render(panel: TPanel);
 begin
-  headerPanel.Parent := WinControl;
-  footerPanel.Parent := WinControl;
-  mainPanel.Parent := WinControl;
+  headerPanel.Parent := panel;
+  footerPanel.Parent := panel;
+  mainPanel.Parent := panel;
   footerButtonBack.Parent := footerPanel;
   { TODO : }
 end;

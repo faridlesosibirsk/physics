@@ -1,15 +1,16 @@
-unit RoomsUnit;
+unit PhisicaUnit;
 
 interface
 
 uses
-  Vcl.Controls {TWinControl} ,
-  BuilderUnit {Builder};
+  Vcl.ExtCtrls {TPanel};
 
 type
-  Rooms = interface
-    procedure Content(WinControl: TWinControl);
-    procedure Lab1(WinControl: TWinControl);
+  Phisica = interface
+    //function getContent: TPanel;
+    //function getLab1: TPanel;
+    function getMain: TPanel;
+    ///function getTheory: TPanel;
   end;
 
 implementation

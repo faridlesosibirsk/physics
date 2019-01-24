@@ -3,13 +3,9 @@ unit Unit1;
 interface
 
 uses
-  PhisicaUnit {Phisica} ,
+  StudentUnit {Student} ,
   PhisicsUnit {Phisics} ,
-  Vcl.Forms {Forms} ,
-  System.Classes,
-  Vcl.Controls,
-  Vcl.ExtCtrls,
-  Vcl.StdCtrls;
+  Vcl.Forms {Forms};
 
 type
   TForm1 = class(TForm)
@@ -31,8 +27,8 @@ implementation
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-  Phisica1 := Phisica.create;
-  Phisica1.open.Parent := self;
+  Phisica1 := Student.create;
+  Phisica1.Open.Parent := self;
 end;
 
 end.

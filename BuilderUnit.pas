@@ -3,8 +3,8 @@ unit BuilderUnit;
 interface
 
 uses
-  classes {TNotifyEvent} ,
-  Vcl.Controls {TWinControl};
+  LabsUnit,
+  classes {TNotifyEvent};
 
 type
   Builder = interface
@@ -16,7 +16,7 @@ type
     //procedure aside;
     //procedure address;
     procedure footer(Next: TNotifyEvent);
-    procedure install(WinControl: TWinControl);
+    //procedure render;
   end;
 
 implementation
