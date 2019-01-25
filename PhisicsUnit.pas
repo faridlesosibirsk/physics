@@ -7,10 +7,10 @@ uses
 
 type
   Phisics = interface
-    //function getContent: TPanel;
-    //function getLab1: TPanel;
+    // function getContent: TPanel;
+    // function getLab1: TPanel;
     function Open: TPanel;
-    ///function getTheory: TPanel;
+    /// function getTheory: TPanel;
   end;
 
 implementation

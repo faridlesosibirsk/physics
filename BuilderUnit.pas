@@ -3,20 +3,13 @@ unit BuilderUnit;
 interface
 
 uses
-  LabsUnit,
-  classes {TNotifyEvent};
+  Vcl.ExtCtrls {TPanel};
 
 type
   Builder = interface
-    procedure free;
-    procedure header;
-    procedure main(Lab1: TNotifyEvent);
-    //procedure nav;
-    //procedure section;
-    //procedure aside;
-    //procedure address;
-    procedure footer(Next: TNotifyEvent);
-    //procedure render;
+    function render: TPanel;
+    procedure Content;
+    procedure Lab1;
   end;
 
 implementation

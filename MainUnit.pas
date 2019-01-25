@@ -1,5 +1,5 @@
 unit MainUnit;
-
+
 interface
 
 uses
@@ -19,31 +19,54 @@ type
     headerPanel, footerPanel, mainPanel: TPanel;
     NextButton: TButton;
     { TODO : add ... }
-    procedure render(panel: TPanel);
-  public
-    procedure free;
+    Next: TNotifyEvent;
+    /// <link>aggregation</link>
+    Lab: Labs;
+    procedure toLab1(Sender: TObject);
+    procedure toContent(Sender: TObject);
+    procedure Main;
+    procedure footer;
     procedure header;
-    procedure main(Lab1: TNotifyEvent);
-    procedure footer(Next: TNotifyEvent);
+    procedure free;
+  public
+    function render: TPanel;
+    procedure Content;
+    procedure Lab1;
   published
-    constructor create(p: TPanel);
+    constructor create(Next: TNotifyEvent);
   end;
 
 implementation
 
 { Panel }
 
-constructor Main.create(p: TPanel);
+procedure Main.Content;
 begin
+
+end;
+
+constructor Main.create(Next: TNotifyEvent);
+begin
+  if assigned(self) then
+    self.free;
+
+  self.Next := Next;
+  panel := TPanel.create(nil);
+  panel.caption := 'Panel1';
+  panel.Align := alClient;
+  panel.BevelOuter := bvNone;
+
   headerPanel := TPanel.create(nil);
   footerPanel := TPanel.create(nil);
   mainPanel := TPanel.create(nil);
   NextButton := TButton.create(nil);
   { TODO : add ... }
-  render(p);
+  header;
+  Main;
+  footer;
 end;
 
-procedure Main.footer(Next: TNotifyEvent);
+procedure Main.footer;
 begin
   with footerPanel do
   begin
@@ -55,8 +78,8 @@ begin
   with NextButton do
   begin
     Top := 8;
-    Caption := 'Next >';
-    OnClick:=Next;
+    caption := 'Next >';
+    OnClick := self.Next;
   end;
 end;
 
@@ -71,6 +94,8 @@ begin
     footerPanel.free;
   if assigned(mainPanel) then
     mainPanel.free;
+  if assigned(panel) then
+    panel.free;
 end;
 
 procedure Main.header;
@@ -83,21 +108,37 @@ begin
     BevelEdges := [beBottom];
     BevelKind := bkSoft;
     BevelOuter := bvNone;
-    Caption := 'Lab.title';
+    caption := 'Lab.title';
     Color := clWhite;
   end;
 end;
 
-procedure Main.render(panel: TPanel);
+procedure Main.Lab1;
+begin
+
+end;
+
+function Main.render: TPanel;
 begin
   headerPanel.Parent := panel;
   footerPanel.Parent := panel;
   mainPanel.Parent := panel;
   NextButton.Parent := footerPanel;
   { TODO : add ... }
+  result := panel;
 end;
 
-procedure Main.main(Lab1: TNotifyEvent);
+procedure Main.toContent(Sender: TObject);
+begin
+
+end;
+
+procedure Main.toLab1(Sender: TObject);
+begin
+
+end;
+
+procedure Main.Main;
 var
   p: TPanel;
   i: integer;
@@ -106,7 +147,7 @@ begin
   begin
     Align := alLeft;
     BevelOuter := bvNone;
-    Caption := 'Content main';
+    caption := 'Content main';
   end;
   { TODO : add ... }
 end;

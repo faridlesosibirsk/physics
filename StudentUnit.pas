@@ -3,10 +3,7 @@ unit StudentUnit;
 interface
 
 uses
-  classes {TNotifyEvent},
-  LabsUnit {Labs} ,
-  ContentUnit {Content} ,
-  Lab1Unit {Lab1} ,
+  classes {TNotifyEvent} ,
   PhisicsUnit {Phisica} ,
   Vcl.Controls {TWinControl} ,
   Vcl.ExtCtrls {TPanel} ,
@@ -21,12 +18,12 @@ type
     Panel1: TPanel;
     /// <link>aggregation</link>
     Builder1: Builder;
-    /// <link>aggregation</link>
-    Lab: Labs;
     procedure toLab1(Sender: TObject);
+    procedure Lab1;
     procedure toContent(Sender: TObject);
+    //procedure Content;
     procedure AssignedPanel1;
-    function getTheory: TPanel;
+    //function getTheory: TPanel;
   public
     function Open: TPanel;
   published
@@ -39,31 +36,33 @@ implementation
 
 function Student.Open: TPanel;
 begin
-  if assigned(Builder1) then
-    Builder1.free;
-  Builder1 := Main.create(Panel1);
+  Builder1 := Main.create(toLab1);
   with Builder1 do
   begin
-    header;
-    main(toLab1);
-    footer(toLab1);
-    //render;
+    Content;
+    render.Parent := Panel1;
   end;
-  result:=Panel1;
+  result := Panel1;
 end;
-
+{
 function Student.getTheory: TPanel;
 begin
-  Builder1.free;
-  Builder1 := Theory.create(Panel1);
+  Builder1 := Theory.create(toContent);
   with Builder1 do
   begin
-    header;
-    main(toContent);
-    footer(toContent);
-    //render;
+    render.Parent := Panel1;
   end;
-  result:=Panel1;
+  result := Panel1;
+end;  }
+
+procedure Student.Lab1;
+begin
+  Builder1 := Theory.create(toContent);
+  with Builder1 do
+  begin
+    Lab1;
+    render.Parent := Panel1;
+  end;
 end;
 
 procedure Student.toContent(Sender: TObject);
@@ -73,7 +72,7 @@ end;
 
 procedure Student.toLab1(Sender: TObject);
 begin
-  getTheory;  /////////////////////////////////
+  Lab1;
 end;
 
 procedure Student.AssignedPanel1;
@@ -86,7 +85,17 @@ begin
     Panel1.BevelOuter := bvNone;
   end;
 end;
-
+{
+procedure Student.Content;
+begin
+  Builder1 := Main.create(toLab1);
+  with Builder1 do
+  begin
+    Content;
+    render.Parent := Panel1;
+  end;
+end;
+}
 constructor Student.create;
 begin
   AssignedPanel1;

@@ -19,31 +19,56 @@ type
     headerPanel, footerPanel, mainPanel: TPanel;
     footerButtonBack: TButton;
     { TODO : }
-    procedure render(panel: TPanel);
-  public
-    procedure free;
+    Next: TNotifyEvent;
+    /// <link>aggregation</link>
+    Lab: Labs;
+    procedure toLab1(Sender: TObject);
+    procedure toContent(Sender: TObject);
     procedure header;
-    procedure main(Lab1: TNotifyEvent);
-    procedure footer(Next: TNotifyEvent);
+    procedure main;
+    procedure footer;
+    procedure free;
+  public
+    function render: TPanel;
+
+    procedure Content;
+    procedure Lab1;
   published
-    constructor create(p: TPanel);
+    constructor create(Next: TNotifyEvent);
   end;
 
 implementation
 
 { Panel }
 
-constructor Theory.create(p: TPanel);
+procedure Theory.Content;
 begin
+
+end;
+
+constructor Theory.create(Next: TNotifyEvent);
+begin
+  if assigned(self) then
+    self.free;
+
+  self.Next := Next;
+  panel := TPanel.create(nil);
+  panel.caption := 'Panel1';
+  panel.Align := alClient;
+  panel.BevelOuter := bvNone;
+
   headerPanel := TPanel.create(nil);
   footerPanel := TPanel.create(nil);
   mainPanel := TPanel.create(nil);
   footerButtonBack := TButton.create(nil);
   { TODO : }
-  render(p);
+  // render(p);
+  header;
+  main;
+  footer;
 end;
 
-procedure Theory.footer(Next: TNotifyEvent);
+procedure Theory.footer;
 begin
   with footerPanel do
   begin
@@ -55,15 +80,12 @@ begin
   with footerButtonBack do
   begin
     Top := 8;
-    Caption := '< Back';
-    OnClick := Next;
+    caption := '< Back';
+    OnClick := self.Next;
   end;
 end;
 
 procedure Theory.free;
-var
-  p: TPanel;
-  I: Integer;
 begin
   { TODO : add ... }
   if assigned(footerButtonBack) then
@@ -74,6 +96,8 @@ begin
     footerPanel.free;
   if assigned(mainPanel) then
     mainPanel.free;
+  if assigned(panel) then
+    panel.free;
 end;
 
 procedure Theory.header;
@@ -86,21 +110,37 @@ begin
     BevelEdges := [beBottom];
     BevelKind := bkSoft;
     BevelOuter := bvNone;
-    Caption := 'Theory header';
+    caption := 'Theory header';
     Color := clWhite;
   end;
 end;
 
-procedure Theory.render(panel: TPanel);
+procedure Theory.Lab1;
+begin
+
+end;
+
+function Theory.render: TPanel;
 begin
   headerPanel.Parent := panel;
   footerPanel.Parent := panel;
   mainPanel.Parent := panel;
   footerButtonBack.Parent := footerPanel;
   { TODO : }
+  result := panel;
 end;
 
-procedure Theory.main(Lab1: TNotifyEvent);
+procedure Theory.toContent(Sender: TObject);
+begin
+
+end;
+
+procedure Theory.toLab1(Sender: TObject);
+begin
+
+end;
+
+procedure Theory.main;
 var
   p: TPanel;
   I: Integer;
