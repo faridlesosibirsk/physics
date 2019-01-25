@@ -8,8 +8,8 @@ uses
 type
   Builder = interface
     function render: TPanel;
-    procedure Content;
-    procedure Lab1;
+    procedure setContent;
+    procedure setLab1;
   end;
 
 implementation

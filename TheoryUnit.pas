@@ -4,6 +4,7 @@ interface
 
 uses
   LabsUnit {Labs} ,
+  Lab1Unit {Lab1} ,
   ContentUnit {Content} ,
   classes {TNotifyEvent} ,
   Graphics {TColor} ,
@@ -22,17 +23,11 @@ type
     Next: TNotifyEvent;
     /// <link>aggregation</link>
     Lab: Labs;
-    procedure toLab1(Sender: TObject);
-    procedure toContent(Sender: TObject);
-    procedure header;
-    procedure main;
-    procedure footer;
     procedure free;
   public
     function render: TPanel;
-
-    procedure Content;
-    procedure Lab1;
+    procedure setContent;
+    procedure setLab1;
   published
     constructor create(Next: TNotifyEvent);
   end;
@@ -41,19 +36,43 @@ implementation
 
 { Panel }
 
-procedure Theory.Content;
+procedure Theory.setContent;
 begin
-
+  Lab := Content.create;
 end;
 
 constructor Theory.create(Next: TNotifyEvent);
 begin
+  self.Next := Next;
+end;
+
+procedure Theory.free;
+begin
+
+  if assigned(footerButtonBack) then
+    footerButtonBack.free;
+  if assigned(headerPanel) then
+    headerPanel.free;
+  if assigned(footerPanel) then
+    footerPanel.free;
+  if assigned(mainPanel) then
+    mainPanel.free;
+  if assigned(panel) then
+    panel.free;
+end;
+
+procedure Theory.setLab1;
+begin
+  Lab := Lab1.create;
+end;
+
+function Theory.render: TPanel;
+begin
   if assigned(self) then
     self.free;
 
-  self.Next := Next;
   panel := TPanel.create(nil);
-  panel.caption := 'Panel1';
+  panel.caption := 'Panel1ttt';
   panel.Align := alClient;
   panel.BevelOuter := bvNone;
 
@@ -61,15 +80,23 @@ begin
   footerPanel := TPanel.create(nil);
   mainPanel := TPanel.create(nil);
   footerButtonBack := TButton.create(nil);
-  { TODO : }
-  // render(p);
-  header;
-  main;
-  footer;
-end;
 
-procedure Theory.footer;
-begin
+  with headerPanel do
+  begin
+    Align := alTop;
+    Alignment := taLeftJustify;
+    BorderWidth := 10;
+    BevelEdges := [beBottom];
+    BevelKind := bkSoft;
+    BevelOuter := bvNone;
+    caption := Lab.getTitle;
+    Color := clWhite;
+  end;
+  with mainPanel do
+  begin
+    Align := alLeft;
+    BevelOuter := bvNone;
+  end;
   with footerPanel do
   begin
     Align := alBottom;
@@ -83,74 +110,13 @@ begin
     caption := '< Back';
     OnClick := self.Next;
   end;
-end;
 
-procedure Theory.free;
-begin
-  { TODO : add ... }
-  if assigned(footerButtonBack) then
-    footerButtonBack.free;
-  if assigned(headerPanel) then
-    headerPanel.free;
-  if assigned(footerPanel) then
-    footerPanel.free;
-  if assigned(mainPanel) then
-    mainPanel.free;
-  if assigned(panel) then
-    panel.free;
-end;
-
-procedure Theory.header;
-begin
-  with headerPanel do
-  begin
-    Align := alTop;
-    Alignment := taLeftJustify;
-    BorderWidth := 10;
-    BevelEdges := [beBottom];
-    BevelKind := bkSoft;
-    BevelOuter := bvNone;
-    caption := 'Theory header';
-    Color := clWhite;
-  end;
-end;
-
-procedure Theory.Lab1;
-begin
-
-end;
-
-function Theory.render: TPanel;
-begin
   headerPanel.Parent := panel;
   footerPanel.Parent := panel;
   mainPanel.Parent := panel;
   footerButtonBack.Parent := footerPanel;
-  { TODO : }
+
   result := panel;
-end;
-
-procedure Theory.toContent(Sender: TObject);
-begin
-
-end;
-
-procedure Theory.toLab1(Sender: TObject);
-begin
-
-end;
-
-procedure Theory.main;
-var
-  p: TPanel;
-  I: Integer;
-begin
-  with mainPanel do
-  begin
-    Align := alClient;
-    BevelOuter := bvNone;
-  end;
-  { TODO : }
 end;
 
 end.

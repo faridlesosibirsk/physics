@@ -21,9 +21,9 @@ type
     procedure toLab1(Sender: TObject);
     procedure Lab1;
     procedure toContent(Sender: TObject);
-    //procedure Content;
+    // procedure Content;
     procedure AssignedPanel1;
-    //function getTheory: TPanel;
+    // function getTheory: TPanel;
   public
     function Open: TPanel;
   published
@@ -39,28 +39,18 @@ begin
   Builder1 := Main.create(toLab1);
   with Builder1 do
   begin
-    Content;
+    setContent;
     render.Parent := Panel1;
   end;
   result := Panel1;
 end;
-{
-function Student.getTheory: TPanel;
-begin
-  Builder1 := Theory.create(toContent);
-  with Builder1 do
-  begin
-    render.Parent := Panel1;
-  end;
-  result := Panel1;
-end;  }
 
 procedure Student.Lab1;
 begin
   Builder1 := Theory.create(toContent);
   with Builder1 do
   begin
-    Lab1;
+    setLab1;
     render.Parent := Panel1;
   end;
 end;
@@ -85,17 +75,7 @@ begin
     Panel1.BevelOuter := bvNone;
   end;
 end;
-{
-procedure Student.Content;
-begin
-  Builder1 := Main.create(toLab1);
-  with Builder1 do
-  begin
-    Content;
-    render.Parent := Panel1;
-  end;
-end;
-}
+
 constructor Student.create;
 begin
   AssignedPanel1;
