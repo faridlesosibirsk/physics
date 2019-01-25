@@ -26,8 +26,9 @@ type
     procedure free;
   public
     function render: TPanel;
-    procedure setContent;
-    procedure setLab1;
+    //procedure setContent;
+    //procedure setLab1;
+    procedure sett(lab: Labs);
   published
     constructor create(Next: TNotifyEvent);
   end;
@@ -35,12 +36,12 @@ type
 implementation
 
 { Panel }
-
+{
 procedure Theory.setContent;
 begin
   Lab := Content.create;
 end;
-
+}
 constructor Theory.create(Next: TNotifyEvent);
 begin
   self.Next := Next;
@@ -60,10 +61,15 @@ begin
   if assigned(panel) then
     panel.free;
 end;
-
+{
 procedure Theory.setLab1;
 begin
   Lab := Lab1.create;
+end;
+}
+procedure Theory.sett(lab: Labs);
+begin
+  self.Lab := Lab;
 end;
 
 function Theory.render: TPanel;
@@ -72,7 +78,7 @@ begin
     self.free;
 
   panel := TPanel.create(nil);
-  panel.caption := 'Panel1ttt';
+  panel.caption := '';
   panel.Align := alClient;
   panel.BevelOuter := bvNone;
 
