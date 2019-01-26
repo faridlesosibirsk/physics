@@ -3,22 +3,25 @@ unit BuilderUnit;
 interface
 
 uses
-  classes {TNotifyEvent} ,
-  Vcl.Controls {TWinControl};
+  MechanicsUnit,
+  Vcl.ExtCtrls {TPanel} ,
+  LaboratoryUnit;
 
 type
-  Builder = interface
-    procedure free;
-    procedure header;
-    procedure main(Lab1: TNotifyEvent);
-    procedure nav;
-    procedure section;
-    procedure aside;
-    procedure address;
-    procedure footer(Next: TNotifyEvent);
-    procedure install(WinControl: TWinControl);
+  Builder = class(Laboratory)
+  public
+    /// <link>aggregation</link>
+    Mechanics1: Mechanics;
+    function Print: TPanel; override;
   end;
 
 implementation
+
+{ Builder }
+
+function Builder.Print: TPanel;
+begin
+  result := nil;
+end;
 
 end.

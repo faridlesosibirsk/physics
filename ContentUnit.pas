@@ -3,22 +3,23 @@ unit ContentUnit;
 interface
 
 uses
-  System.Classes;
+  Vcl.ExtCtrls {TPanel},
+  MechanicsUnit,
+  LaboratoryUnit;
 
 type
-  Content = class abstract
-  const
-    title = 'Открытая физика';
-    Content = 'Механика';
-    item: array [1 .. 14] of String = ('Сложение векторов',
-      'Движение с постоянным ускорением', 'Относительное движение',
-      'Свободное падение тел', 'Движение по окружности', 'Вес и невесомость',
-      'Движение по наклонной плоскости', 'Упругие и неупругие соударения',
-      'Соударение упругих шаров', 'Реактивное движение', 'Закон Кеплера',
-      'Момент инерции', 'Течение идеальной жидкости',
-      'Видеозаписи механических эксперементов');
+
+  Content = class(Mechanics)
+    function Print: TPanel; override;
   end;
 
 implementation
+
+{ TLaterPage }
+
+function Content.Print: TPanel;
+begin
+  result := TPanel.Create(nil);//'Content1' +
+end;
 
 end.

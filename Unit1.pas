@@ -1,38 +1,37 @@
 unit Unit1;
-
+
 interface
 
 uses
-  PhisicaUnit {Phisica} ,
-  PhisicsUnit {Phisics} ,
-  Vcl.Forms {Forms} ,
-  System.Classes,
-  Vcl.Controls,
-  Vcl.ExtCtrls,
-  Vcl.StdCtrls;
+  FormCreateUnit,
+  PanelCreateUnit,
+  Vcl.Controls {TWinControl} ,
+  Vcl.ExtCtrls {TPanel},
+  Vcl.Forms;
 
 type
   TForm1 = class(TForm)
+    procedure FormCreate(Sender: TObject);
   private
     /// <link>aggregation</link>
-    Phisica1: Phisics;
-  public
-  published
-    procedure FormCreate(Sender: TObject);
+    FormCreate1: FormCreate;
+    procedure Panelcreate1;
   end;
-
-var
-  Form1: TForm1;
 
 implementation
 
 {$R *.dfm}
-{ TForm1 }
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-  Phisica1 := Phisica.create;
-  Phisica1.open.Parent := self;
+  Panelcreate1;
+end;
+
+procedure TForm1.Panelcreate1;
+begin
+  FormCreate1:= PanelCreate.create;
+  FormCreate1.Open.Parent:=self;
 end;
 
 end.
+

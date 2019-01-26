@@ -1,4 +1,4 @@
-unit PhisicsUnit;
+unit FormCreateUnit;
 
 interface
 
@@ -6,8 +6,8 @@ uses
   Vcl.ExtCtrls {TPanel};
 
 type
-  Phisics = interface
-    function open: TPanel;
+  FormCreate = interface
+    function Open: TPanel;
   end;
 
 implementation

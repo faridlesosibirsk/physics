@@ -3,21 +3,29 @@ program Project1;
 uses
   Vcl.Forms,
   Unit1 in 'Unit1.pas' {Form1},
-  PhisicsUnit in 'PhisicsUnit.pas',
-  StudentUnit in 'StudentUnit.pas',
-  BuilderUnit in 'BuilderUnit.pas',
-  Lab1BuilderUnit in 'Lab1BuilderUnit.pas',
+  LaboratoryUnit in 'LaboratoryUnit.pas',
+  MechanicsUnit in 'MechanicsUnit.pas',
   Lab1Unit in 'Lab1Unit.pas',
   ContentUnit in 'ContentUnit.pas',
-  PhisicaUnit in 'PhisicaUnit.pas',
-  RoomUnit in 'RoomUnit.pas',
-  ContentBuilderUnit in 'ContentBuilderUnit.pas';
+  MainUnit in 'MainUnit.pas',
+  BuilderUnit in 'BuilderUnit.pas',
+  TheoryUnit in 'TheoryUnit.pas',
+  TestUnit in 'TestUnit.pas',
+  MethodologyUnit in 'MethodologyUnit.pas',
+  ReportUnit in 'ReportUnit.pas',
+  Lab2Unit in 'Lab2Unit.pas',
+  FormCreateUnit in 'FormCreateUnit.pas',
+  PanelCreateUnit in 'PanelCreateUnit.pas';
 
 {$R *.res}
+
+var
+  Form1: TForm1;
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TForm1, Form1);
   Application.Run;
+
 end.

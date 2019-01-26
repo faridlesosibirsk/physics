@@ -1,4 +1,4 @@
-unit Lab1Unit;
+unit Lab2Unit;
 
 interface
 
@@ -8,16 +8,15 @@ uses
   LaboratoryUnit;
 
 type
-
-  Lab1 = class(Mechanics)
+  Lab2 = class(Mechanics)
     function Print: TPanel; override;
   end;
 
 implementation
 
-{ TNamberPage }
+{ Lab2 }
 
-function Lab1.Print: TPanel;
+function Lab2.Print: TPanel;
 begin
   result := TPanel.Create(nil);
 end;

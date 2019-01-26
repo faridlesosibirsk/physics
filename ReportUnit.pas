@@ -1,23 +1,21 @@
-unit Lab1Unit;
+unit ReportUnit;
 
 interface
 
 uses
   Vcl.ExtCtrls {TPanel},
-  MechanicsUnit,
-  LaboratoryUnit;
+  BuilderUnit, LaboratoryUnit;
 
 type
-
-  Lab1 = class(Mechanics)
+  Report = class(Builder)
     function Print: TPanel; override;
   end;
 
 implementation
 
-{ TNamberPage }
+{ Report }
 
-function Lab1.Print: TPanel;
+function Report.Print: TPanel;
 begin
   result := TPanel.Create(nil);
 end;
