@@ -3,6 +3,9 @@ unit PanelCreateUnit;
 interface
 
 uses
+  Lab1Unit,
+  TheoryUnit,
+  classes {TNotifyEvent} ,
   ContentUnit,
   Vcl.ExtCtrls {TPanel},
   Vcl.Controls {TWinControl} ,
@@ -19,6 +22,8 @@ type
     procedure AssignedPanel;
   public
     function Open: TPanel;
+    procedure toLab1(Sender: TObject);
+    procedure toOpen(Sender: TObject);
   end;
 
 implementation
@@ -38,10 +43,23 @@ end;
 
 function PanelCreate.Open: TPanel;
 begin
-  AssignedPanel;
-  Laboratory1:= Main.create(Content.create());
-  Laboratory1.Print.Parent:=Panel1;
+  toLab1(nil);
   result:=Panel1;
+end;
+
+procedure PanelCreate.toLab1(Sender: TObject);
+begin
+  AssignedPanel;
+  Laboratory1:= Main.create(Content.create(), toLab1);
+  Laboratory1.Print.Parent:=Panel1;
+end;
+
+procedure PanelCreate.toOpen(Sender: TObject);
+begin
+  AssignedPanel;
+  Laboratory1.Free;
+  Laboratory1:= Main.create(Lab1.create(), toOpen);
+  Laboratory1.Print.Parent:=Panel1;
 end;
 
 end.

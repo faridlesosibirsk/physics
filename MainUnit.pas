@@ -3,6 +3,8 @@ unit MainUnit;
 interface
 
 uses
+  classes {TNotifyEvent} ,
+  Vcl.StdCtrls {TButton} ,
   MechanicsUnit,
   System.Generics.Collections {TDictionary},
   Vcl.Controls {TWinControl} ,
@@ -13,15 +15,16 @@ type
   Main = class(Builder)
   private
     LeftPanel: TPanel;
-    ListPanel: TDictionary<String, TPanel>;
+    Button: TButton;
     { TODO :  }
+    notify: TNotifyEvent;
     procedure createLeftPanel;
-    procedure createListPanel;
+    procedure createButton;
     procedure install;
   public
     function Print: TPanel; override;
   published
-    constructor create(Mechanics1: Mechanics);
+    constructor create(Mechanics1: Mechanics; notify: TNotifyEvent);
     destructor destroy;
   end;
 
@@ -29,12 +32,21 @@ implementation
 
 { TPage }
 
-constructor Main.create(Mechanics1: Mechanics);
+constructor Main.create(Mechanics1: Mechanics; notify: TNotifyEvent);
 begin
   self.Mechanics1:= Mechanics1;
+  self.notify:= notify;
   LeftPanel := TPanel.Create(nil);
-  ListPanel:= TDictionary<String, TPanel>.create;
+  Button:= TButton.Create(nil);
   { TODO :  }
+end;
+
+procedure Main.createButton;
+begin
+  with Button do begin
+    OnClick:=notify;//toLab1;
+    Parent:=LeftPanel;
+  end;
 end;
 
 procedure Main.createLeftPanel;
@@ -45,12 +57,7 @@ begin
   end;
 end;
 
-procedure Main.createListPanel;
-begin
-  with ListPanel do begin
-    Add('1',TPanel.Create(nil));
-  end;
-end;
+
 
 destructor Main.destroy;
 begin
@@ -60,6 +67,7 @@ end;
 procedure Main.install;
 begin
   createLeftPanel;
+  createButton;
 end;
 
 function Main.Print: TPanel;
