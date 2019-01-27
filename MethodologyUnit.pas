@@ -8,16 +8,16 @@ uses
 
 type
   Methodology = class(Builder)
-    function Print: TPanel; override;
+    procedure Print(panel: TPanel); override;
   end;
 
 implementation
 
 { Methodology }
 
-function Methodology.Print: TPanel;
+procedure Methodology.Print(panel: TPanel);
 begin
-  result := TPanel.Create(nil);
+  TPanel.Create(panel).Parent:=panel;
 end;
 
 end.

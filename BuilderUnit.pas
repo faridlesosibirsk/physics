@@ -5,23 +5,81 @@ interface
 uses
   MechanicsUnit,
   Vcl.ExtCtrls {TPanel} ,
+  classes {TNotifyEvent} ,
+  Vcl.StdCtrls {TButton} ,
+  System.Generics.Collections {TDictionary} ,
+  Vcl.Controls {TWinControl} ,
   LaboratoryUnit;
 
 type
   Builder = class(Laboratory)
-  public
+  private
+    LeftPanel: TPanel;
+    Button: TButton;
+    { TODO : }
+    notify: TNotifyEvent;
     /// <link>aggregation</link>
     Mechanics1: Mechanics;
-    function Print: TPanel; override;
+    procedure createLeftPanel;
+    procedure createButton;
+    procedure install;
+  public
+    procedure Print(panel: TPanel); override;
+  published
+    constructor create(Mechanics1: Mechanics; notify: TNotifyEvent);
+    destructor destroy; override;
+
   end;
 
 implementation
 
 { Builder }
 
-function Builder.Print: TPanel;
+constructor Builder.create(Mechanics1: Mechanics; notify: TNotifyEvent);
 begin
-  result := nil;
+  if assigned(LeftPanel) then
+    LeftPanel.parent := nil;
+  self.Mechanics1 := Mechanics1;
+  self.notify := notify;
+  LeftPanel := TPanel.create(nil);
+  Button := TButton.create(nil);
+  { TODO : }
+end;
+
+procedure Builder.createButton;
+begin
+  with Button do
+  begin
+    OnClick := notify;
+    parent := LeftPanel;
+  end;
+end;
+
+procedure Builder.createLeftPanel;
+begin
+  with LeftPanel do
+  begin
+    Align := alLeft;
+    Caption := Mechanics1.getModel['title'];
+  end;
+end;
+
+destructor Builder.destroy;
+begin
+    LeftPanel.parent := nil
+end;
+
+procedure Builder.install;
+begin
+  createLeftPanel;
+  createButton;
+  { TODO : }
+end;
+
+procedure Builder.Print(panel: TPanel);
+begin
+  install;
+  LeftPanel.parent := panel;
 end;
 
 end.

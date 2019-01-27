@@ -6,8 +6,6 @@ uses
   LaboratoryUnit in 'LaboratoryUnit.pas',
   MechanicsUnit in 'MechanicsUnit.pas',
   Lab1Unit in 'Lab1Unit.pas',
-  ContentUnit in 'ContentUnit.pas',
-  MainUnit in 'MainUnit.pas',
   BuilderUnit in 'BuilderUnit.pas',
   TheoryUnit in 'TheoryUnit.pas',
   TestUnit in 'TestUnit.pas',

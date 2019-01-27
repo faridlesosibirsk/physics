@@ -7,7 +7,8 @@ uses
 
 type
   Laboratory = class
-    function Print: TPanel; virtual; abstract;
+    procedure Print(panel: TPanel); virtual; abstract;
+    destructor destroy; virtual; abstract;
   end;
 
 implementation

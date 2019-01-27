@@ -8,16 +8,16 @@ uses
 
 type
   Report = class(Builder)
-    function Print: TPanel; override;
+    procedure Print(panel: TPanel); override;
   end;
 
 implementation
 
 { Report }
 
-function Report.Print: TPanel;
+procedure Report.Print(panel: TPanel);
 begin
-  result := TPanel.Create(nil);
+  TPanel.Create(panel).Parent:=panel;
 end;
 
 end.

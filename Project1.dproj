@@ -90,8 +90,6 @@
 			<DCCReference Include="LaboratoryUnit.pas"/>
 			<DCCReference Include="MechanicsUnit.pas"/>
 			<DCCReference Include="Lab1Unit.pas"/>
-			<DCCReference Include="ContentUnit.pas"/>
-			<DCCReference Include="MainUnit.pas"/>
 			<DCCReference Include="BuilderUnit.pas"/>
 			<DCCReference Include="TheoryUnit.pas"/>
 			<DCCReference Include="TestUnit.pas"/>
@@ -105,10 +103,6 @@
 			<None Include="ModelSupport_Project1\Project1\default.txvpck"/>
 			<None Include="ModelSupport_Project1\Unit1\default.txvpck"/>
 			<None Include="ModelSupport_Project1\Unit1\default.txaPackage"/>
-			<None Include="ModelSupport_Project1\MainUnit\default.txaPackage"/>
-			<None Include="ModelSupport_Project1\MainUnit\default.txvpck"/>
-			<None Include="ModelSupport_Project1\ContentUnit\default.txaPackage"/>
-			<None Include="ModelSupport_Project1\ContentUnit\default.txvpck"/>
 			<None Include="ModelSupport_Project1\Lab1Unit\default.txaPackage"/>
 			<None Include="ModelSupport_Project1\Lab1Unit\default.txvpck"/>
 			<None Include="ModelSupport_Project1\BuilderUnit\default.txaPackage"/>

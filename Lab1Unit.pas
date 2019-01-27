@@ -3,6 +3,7 @@ unit Lab1Unit;
 interface
 
 uses
+  System.Generics.Collections {TDictionary} ,
   Vcl.ExtCtrls {TPanel},
   MechanicsUnit,
   LaboratoryUnit;
@@ -10,16 +11,40 @@ uses
 type
 
   Lab1 = class(Mechanics)
-    function Print: TPanel; override;
+  private
+    //model: TDictionary<String, String>;
+  public
+
+    procedure Print(panel: TPanel); override;
+    function getModel: TDictionary<String, String>;
+  published
+    constructor create;
+    destructor destroy; override;
   end;
 
 implementation
 
 { TNamberPage }
 
-function Lab1.Print: TPanel;
+constructor Lab1.create;
 begin
-  result := TPanel.Create(nil);
+  model:= TDictionary<String, String>.create;
+  model.AddOrSetValue('title','Lab1');
+end;
+
+destructor Lab1.destroy;
+begin
+  model.Free;
+end;
+
+function Lab1.getModel: TDictionary<String, String>;
+begin
+  result:=model;
+end;
+
+procedure Lab1.Print(panel: TPanel);
+begin
+  TPanel.Create(panel).Parent:=panel;
 end;
 
 end.

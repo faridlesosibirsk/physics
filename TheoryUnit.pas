@@ -20,7 +20,7 @@ type
     procedure createButton;
     procedure install;
   public
-    function Print: TPanel; override;
+    procedure Print(panel: TPanel); override;
   published
     constructor create(Mechanics1: Mechanics; notify: TNotifyEvent);
     destructor destroy;
@@ -55,9 +55,9 @@ begin
 
 end;
 
-function Theory.Print: TPanel;
+procedure Theory.Print(panel: TPanel);
 begin
-  result := TPanel.Create(nil);
+  TPanel.Create(panel).Parent:=panel;
 end;
 
 end.

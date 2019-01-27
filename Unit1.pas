@@ -1,12 +1,12 @@
 unit Unit1;
-
+
 interface
 
 uses
   FormCreateUnit,
   PanelCreateUnit,
   Vcl.Controls {TWinControl} ,
-  Vcl.ExtCtrls {TPanel},
+  Vcl.ExtCtrls {TPanel} ,
   Vcl.Forms;
 
 type
@@ -29,8 +29,8 @@ end;
 
 procedure TForm1.Panelcreate1;
 begin
-  FormCreate1:= PanelCreate.create;
-  FormCreate1.Open.Parent:=self;
+  FormCreate1 := PanelCreate.create;
+  FormCreate1.OpenMechanics(self);
 end;
 
 end.

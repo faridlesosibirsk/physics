@@ -3,11 +3,12 @@ unit FormCreateUnit;
 interface
 
 uses
-  Vcl.ExtCtrls {TPanel};
+  Vcl.ExtCtrls {TPanel},
+  Vcl.Forms;
 
 type
   FormCreate = interface
-    function Open: TPanel;
+    procedure OpenMechanics(Form: TForm);
   end;
 
 implementation
