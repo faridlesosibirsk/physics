@@ -23,7 +23,7 @@ type
     /// <link>aggregation</link>
     Laboratory1: Laboratory;
     function InstancePanel(Form: TForm): TPanel;
-    procedure toAny(Mechanics1: Mechanics; notify: TNotifyEvent);
+    procedure build(Mechanics1: Mechanics; notify: TNotifyEvent);
   public
     procedure OpenMechanics(Form: TForm);
     procedure toOpen(Sender: TObject);
@@ -55,10 +55,10 @@ end;
 procedure PanelCreate.OpenMechanics(Form: TForm);
 begin
   self.Form := Form;
-  toAny(Mechanics.create(), toLab1);
+  build(Mechanics.create(), toLab1);
 end;
 
-procedure PanelCreate.toAny(Mechanics1: Mechanics; notify: TNotifyEvent);
+procedure PanelCreate.build(Mechanics1: Mechanics; notify: TNotifyEvent);
 begin
   if assigned(Laboratory1) then
     Laboratory1.Destroy;
@@ -68,17 +68,17 @@ end;
 
 procedure PanelCreate.toLab1(Sender: TObject);
 begin
-  toAny(Lab1.create(), toOpen);
+  build(Lab1.create(), toOpen);
 end;
 
 procedure PanelCreate.toLab2(Sender: TObject);
 begin
-  toAny(Lab2.create(), toOpen);
+  build(Lab2.create(), toOpen);
 end;
 
 procedure PanelCreate.toOpen(Sender: TObject);
 begin
-  toAny(Mechanics.create(), toLab1);
+  build(Mechanics.create(), toLab1);
 end;
 
 end.
