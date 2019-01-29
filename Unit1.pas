@@ -1,28 +1,30 @@
 unit Unit1;
-
+
 interface
 
 uses
-  FormCreateUnit,
-  PanelCreateUnit,
-  Vcl.Controls {TWinControl} ,
-  Vcl.ExtCtrls {TPanel} ,
-  Vcl.Forms, System.Classes, Data.DB, Data.Win.ADODB, Vcl.Grids, Vcl.DBGrids,
-  Vcl.StdCtrls, Vcl.DBCtrls, Vcl.DBCGrids;
+  ConnectionUnit,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Data.Win.ADODB, Vcl.DBCGrids,
+  Vcl.StdCtrls, Vcl.DBCtrls;
 
 type
   TForm1 = class(TForm)
     ADOConnection1: TADOConnection;
-    ADOQuery1: TADOQuery;
     DataSource1: TDataSource;
+    ADOQuery1: TADOQuery;
     DBCtrlGrid1: TDBCtrlGrid;
     DBText1: TDBText;
     procedure FormCreate(Sender: TObject);
   private
     /// <link>aggregation</link>
-    FormCreate1: FormCreate;
-    procedure Panelcreate1;
+    Connection1: Connection;
+  public
+    { Public declarations }
   end;
+
+var
+  Form1: TForm1;
 
 implementation
 
@@ -30,14 +32,8 @@ implementation
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-  Panelcreate1;
-end;
-
-procedure TForm1.Panelcreate1;
-begin
-  FormCreate1 := PanelCreate.create;
-  FormCreate1.OpenMechanics(self);
+  Connection1:= AccessConnection.Create;
+  Connection1.setDBCtrlGrid(self);
 end;
 
 end.
-

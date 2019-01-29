@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Form1'
-  ClientHeight = 299
-  ClientWidth = 635
+  ClientHeight = 311
+  ClientWidth = 643
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,19 +18,18 @@ object Form1: TForm1
     Left = 0
     Top = 0
     Width = 216
-    Height = 299
+    Height = 311
     Align = alLeft
     DataSource = DataSource1
-    PanelHeight = 74
+    PanelHeight = 103
     TabOrder = 0
-    RowCount = 4
-    ExplicitLeft = 8
-    ExplicitTop = 8
-    ExplicitHeight = 264
+    ExplicitLeft = 80
+    ExplicitTop = 16
+    ExplicitHeight = 216
     object DBText1: TDBText
-      Left = 32
-      Top = 24
-      Width = 145
+      Left = 8
+      Top = 40
+      Width = 185
       Height = 17
       DataField = 'title'
       DataSource = DataSource1
@@ -44,8 +43,13 @@ object Form1: TForm1
     LoginPrompt = False
     Mode = cmShareDenyNone
     Provider = 'Microsoft.ACE.OLEDB.12.0'
-    Left = 408
-    Top = 40
+    Left = 416
+    Top = 48
+  end
+  object DataSource1: TDataSource
+    DataSet = ADOQuery1
+    Left = 528
+    Top = 96
   end
   object ADOQuery1: TADOQuery
     Active = True
@@ -54,12 +58,7 @@ object Form1: TForm1
     Parameters = <>
     SQL.Strings = (
       'SELECT title FROM Mechanics;')
-    Left = 312
-    Top = 40
-  end
-  object DataSource1: TDataSource
-    DataSet = ADOQuery1
-    Left = 264
-    Top = 24
+    Left = 472
+    Top = 64
   end
 end
