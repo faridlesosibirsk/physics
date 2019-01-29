@@ -16,7 +16,7 @@ type
   public
 
     procedure Print(panel: TPanel); override;
-    function getModel: TDictionary<String, String>;
+    function getModel: TList<String>;
   published
     constructor create;
     destructor destroy; override;
@@ -28,8 +28,8 @@ implementation
 
 constructor Lab1.create;
 begin
-  model:= TDictionary<String, String>.create;
-  model.AddOrSetValue('title','Lab1');
+  model:= TList<String>.create;
+  model.Add('Lab1');
 end;
 
 destructor Lab1.destroy;
@@ -37,7 +37,7 @@ begin
   model.Free;
 end;
 
-function Lab1.getModel: TDictionary<String, String>;
+function Lab1.getModel: TList<String>;
 begin
   result:=model;
 end;

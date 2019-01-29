@@ -9,19 +9,27 @@ uses
   Vcl.StdCtrls {TButton} ,
   System.Generics.Collections {TDictionary} ,
   Vcl.Controls {TWinControl} ,
-  LaboratoryUnit;
+  LaboratoryUnit,
+  Data.DB,
+  Data.Win.ADODB,
+  Vcl.Grids,
+  Vcl.DBGrids,
+  Vcl.DBCtrls,
+  Vcl.DBCGrids;
 
 type
   Builder = class(Laboratory)
   private
     LeftPanel: TPanel;
     Button: TButton;
+    DBCtrlGrid1: TDBCtrlGrid;
     { TODO : }
     notify: TNotifyEvent;
     /// <link>aggregation</link>
     Mechanics1: Mechanics;
     procedure createLeftPanel;
     procedure createButton;
+    procedure createDBCtrlGrid;
     procedure install;
   public
     procedure Print(panel: TPanel); override;
@@ -43,6 +51,7 @@ begin
   self.notify := notify;
   LeftPanel := TPanel.create(nil);
   Button := TButton.create(nil);
+  DBCtrlGrid1:= TDBCtrlGrid.create(nil);
   { TODO : }
 end;
 
@@ -55,12 +64,20 @@ begin
   end;
 end;
 
+procedure Builder.createDBCtrlGrid;
+begin
+  with DBCtrlGrid1 do
+  begin
+    { TODO :  }
+  end;
+end;
+
 procedure Builder.createLeftPanel;
 begin
   with LeftPanel do
   begin
     Align := alLeft;
-    Caption := Mechanics1.getModel['title'];
+    Caption := Mechanics1.getModel.Last;//  .First;
   end;
 end;
 

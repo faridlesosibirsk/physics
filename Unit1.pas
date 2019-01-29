@@ -7,10 +7,16 @@ uses
   PanelCreateUnit,
   Vcl.Controls {TWinControl} ,
   Vcl.ExtCtrls {TPanel} ,
-  Vcl.Forms;
+  Vcl.Forms, System.Classes, Data.DB, Data.Win.ADODB, Vcl.Grids, Vcl.DBGrids,
+  Vcl.StdCtrls, Vcl.DBCtrls, Vcl.DBCGrids;
 
 type
   TForm1 = class(TForm)
+    ADOConnection1: TADOConnection;
+    ADOQuery1: TADOQuery;
+    DataSource1: TDataSource;
+    DBCtrlGrid1: TDBCtrlGrid;
+    DBText1: TDBText;
     procedure FormCreate(Sender: TObject);
   private
     /// <link>aggregation</link>

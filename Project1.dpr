@@ -13,7 +13,8 @@ uses
   ReportUnit in 'ReportUnit.pas',
   Lab2Unit in 'Lab2Unit.pas',
   FormCreateUnit in 'FormCreateUnit.pas',
-  PanelCreateUnit in 'PanelCreateUnit.pas';
+  PanelCreateUnit in 'PanelCreateUnit.pas',
+  ActiveRecordUnit in 'ActiveRecordUnit.pas';
 
 {$R *.res}
 

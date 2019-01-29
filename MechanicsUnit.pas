@@ -3,18 +3,20 @@ unit MechanicsUnit;
 interface
 
 uses
+  ActiveRecordUnit,
   System.Generics.Collections {TDictionary} ,
-  Vcl.ExtCtrls {TPanel},
+  Vcl.ExtCtrls {TPanel} ,
   LaboratoryUnit;
 
 type
   Mechanics = class(Laboratory)
   private
-
+    /// <link>aggregation</link>
+    ActiveRecord1: ActiveRecord;
   public
-    model: TDictionary<String, String>;
+    model: TList<String>;
     procedure Print(panel: TPanel); override;
-    function getModel: TDictionary<String, String>;
+    function getModel: TList<String>;
   published
     constructor create;
     destructor destroy; override;
@@ -25,9 +27,12 @@ implementation
 { TDecoratorPage }
 
 constructor Mechanics.create;
+var
+  s: string;
 begin
-  model:= TDictionary<String, String>.create;
-  model.AddOrSetValue('title','Mechanics');
+  ActiveRecord1 := ActiveRecord.create;
+  model := TList<String>.create;
+  model.Add('Mechanics');
 end;
 
 destructor Mechanics.destroy;
@@ -35,14 +40,14 @@ begin
   model.Free;
 end;
 
-function Mechanics.getModel: TDictionary<String, String>;
+function Mechanics.getModel: TList<String>;
 begin
-  result:=model;
+  result := model;
 end;
 
 procedure Mechanics.Print(panel: TPanel);
 begin
-  TPanel.Create(panel).Parent:=panel;
+  TPanel.create(panel).Parent := panel;
 end;
 
 end.
