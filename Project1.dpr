@@ -3,8 +3,18 @@ program Project1;
 uses
   Vcl.Forms,
   Unit1 in 'Unit1.pas' {Form1},
-  ControllerUnit in 'ControllerUnit.pas',
-  ConnectionUnit in 'ConnectionUnit.pas';
+  ConnectionUnit in 'ConnectionUnit.pas',
+  PhisicsUnit in 'PhisicsUnit.pas',
+  LabsUnit in 'LabsUnit.pas',
+  ControllsUnit in 'ControllsUnit.pas',
+  TheoryUnit in 'TheoryUnit.pas',
+  ContentUnit in 'ContentUnit.pas',
+  TestUnit in 'TestUnit.pas',
+  MethodUnit in 'MethodUnit.pas',
+  ReportUnit in 'ReportUnit.pas',
+  Lab3Unit in 'Lab3Unit.pas',
+  Lab1Unit in 'Lab1Unit.pas',
+  Lab2Unit in 'Lab2Unit.pas';
 
 {$R *.res}
 

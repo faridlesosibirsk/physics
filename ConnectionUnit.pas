@@ -9,84 +9,55 @@ uses
 
 type
   Connection = interface
-    procedure setDBCtrlGrid(AOwner: TForm);
   end;
 
   AccessConnection = class(TInterfacedObject, Connection)
   private
-    DBText1: TDBText;
-    DBCtrlGrid1: TDBCtrlGrid;
+
     ADOQuery: TADOQuery;
     DataSource: TDataSource;
     ADOConnection: TADOConnection;
-    function GetDataSource: TDataSource;
-  public
-    procedure setDBCtrlGrid(AOwner: TForm);
   published
-    constructor create;
+    constructor create(AOwner: TForm);
   end;
 
 implementation
 
 { AccessConnection }
 
-constructor AccessConnection.create;
+constructor AccessConnection.create(AOwner: TForm);
 begin
-  if not Assigned(ADOConnection) then
-    ADOConnection := TADOConnection.create(nil);
+  // if not Assigned(ADOConnection) then
+  ADOConnection := TADOConnection.create(nil);
   with (ADOConnection) do
   begin
+    Provider := 'Microsoft.ACE.OLEDB.12.0';
+    Mode := cmShareDenyNone;
+    LoginPrompt := False;
     ConnectionString :=
-      'Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\_data\accessDB.accdb;Persist Security Info=False';
-    LoginPrompt := false;
-    Connected := true;
-    Mode:=cmShareDenyNone;
-    Provider :='Microsoft.ACE.OLEDB.12.0';
+      'Provider=Microsoft.ACE.OLEDB.15.0;Data Source=D:\_data\accessDB.' +
+      'accdb;Persist Security Info=False';
+    Connected := True;
   end;
-
-end;
-
-function AccessConnection.GetDataSource: TDataSource;
-begin
-  if not Assigned(ADOQuery) then
-    ADOQuery := TADOQuery.create(nil);
-  ADOQuery.Connection := ADOConnection;
-  ADOQuery.Close;
-  ADOQuery.SQL.Clear;
-  ADOQuery.SQL.add('SELECT * FROM Mechanics;');
-  ADOQuery.Open;
-  ADOQuery.Active := true;
-  if not Assigned(DataSource) then
-    DataSource := TDataSource.create(nil);
-  DataSource.DataSet := ADOQuery;
-  ADOQuery.Active := true;
-  result := DataSource;
-end;
-
-procedure AccessConnection.setDBCtrlGrid(AOwner: TForm);
-begin
-  DBCtrlGrid1 := TDBCtrlGrid.create(AOwner);
-  with (DBCtrlGrid1) do
+  // if not Assigned(ADOQuery) then
+  ADOQuery := TADOQuery.create(nil);
+  with (ADOQuery) do
   begin
-    Align := alLeft;
-    Parent := AOwner;
-    Left := 200;
-    Top := 56;
-    Width := 216;
-    Height := 216;
-    TabOrder := 0;
-    DataSource := GetDataSource;
+    Connection := ADOConnection;
+    Close;
+    SQL.Clear;
+    SQL.add('SELECT title FROM Mechanics WHERE id = 1;');
+    Open;
+    Active := True;
   end;
-  DBText1 := TDBText.create(DBCtrlGrid1);
-  with (DBText1) do
+  // if not Assigned(DataSource) then
+  DataSource := TDataSource.create(nil);
+  with (DataSource) do
   begin
-    Parent := DBCtrlGrid1;
-    Left := 16;
-    Top := 16;
-    Width := 650;
-    Height := 17;
-    DataField := 'title';
+    DataSet := ADOQuery;
   end;
+  AOwner.Caption := ADOQuery.FieldByName('title').AsString;
+
 end;
 
 end.
