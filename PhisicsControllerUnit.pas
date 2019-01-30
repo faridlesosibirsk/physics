@@ -1,5 +1,5 @@
 unit PhisicsControllerUnit;
-
+
 interface
 
 uses
@@ -23,7 +23,7 @@ type
     AOwner: TForm;
     Mechanics: TGroupBox;
     Lab1Panel: TPanel;
-    //procedure toLab1(Sender: TObject);
+    // procedure toLab1(Sender: TObject);
     procedure toLab1Theory(Sender: TObject);
     procedure toLab1Test(Sender: TObject);
     procedure toLab1Method(Sender: TObject);
@@ -43,72 +43,79 @@ implementation
 procedure PhisicsController.clear;
 begin
   if assigned(Lab) then
-    Lab.destroy;
-  Lab1Panel.Free;
-  Mechanics.Free;
+    Lab.clear;
+  if assigned(Mechanics) then
+    Mechanics.Parent := nil;
+  if assigned(Lab1Panel) then
+    Lab1Panel.Parent := nil;
 end;
 
 constructor PhisicsController.create(AOwner: TForm);
 begin
   self.AOwner := AOwner;
-  // Lab:= Lab1.create(AOwner, Open);
   First;
 end;
 
 procedure PhisicsController.First;
 begin
   AOwner.Caption := 'Открытая Физика';
-  Mechanics := TGroupBox.create(nil);
-  with Mechanics do
+  if assigned(Mechanics) then
+    Mechanics.Parent := AOwner
+  else
   begin
-    Parent := AOwner;
-    Align := alLeft;
-    Caption := 'Механика';
+    Mechanics := TGroupBox.create(nil);
+    with Mechanics do
+    begin
+      Parent := AOwner;
+      Align := alLeft;
+      Caption := 'Механика';
+    end;
   end;
-  Lab1Panel := TPanel.create(nil);
-  with Lab1Panel do
+
+  if assigned(Lab1Panel) then
+    Lab1Panel.Parent := Mechanics
+  else
   begin
-    Parent := Mechanics;
-    Align := alTop;
-    Caption := 'Lab1';
-    OnClick := toLab1Theory;
+    Lab1Panel := TPanel.create(nil);
+    with Lab1Panel do
+    begin
+      Parent := Mechanics;
+      Align := alTop;
+      Caption := 'Lab1';
+      OnClick := toLab1Theory;
+    end;
   end;
 end;
 
 procedure PhisicsController.Open(Sender: TObject);
 begin
-  //clear;
+  clear;
   First;
 end;
-{
-procedure PhisicsController.toLab1(Sender: TObject);
-begin
-  clear;
-  Lab := Lab1.create(AOwner, Open);
-end;
-}
+
 procedure PhisicsController.toLab1Method(Sender: TObject);
 begin
   clear;
-  Lab := MethodLab1.create(AOwner, Open);
+  Lab := MethodLab1.create(AOwner, toLab1Test, toLab1Report);
 end;
 
 procedure PhisicsController.toLab1Report(Sender: TObject);
 begin
   clear;
-  Lab := ReportLab1.create(AOwner, Open);
+  Lab := ReportLab1.create(AOwner, toLab1Method, Open);
 end;
 
 procedure PhisicsController.toLab1Test(Sender: TObject);
 begin
   clear;
-  Lab := TestLab1.create(AOwner, Open);
+  Lab := TestLab1.create(AOwner, toLab1Theory, toLab1Method);
 end;
 
 procedure PhisicsController.toLab1Theory(Sender: TObject);
 begin
   clear;
-  Lab := TheoryLab1.create(AOwner, Open);
+  Lab := TheoryLab1.create(AOwner, Open, toLab1Test);
 end;
 
 end.
+

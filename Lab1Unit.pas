@@ -18,24 +18,15 @@ type
     /// <link>aggregation</link>
     Connection1: Connection;
   published
-    constructor create(AOwner: TForm; Open: TNotifyEvent); virtual;
-    procedure destroy; virtual;
+    procedure clear; virtual;
   end;
 
 implementation
 
 { Lab1 }
 
-constructor Lab1.create(AOwner: TForm; Open: TNotifyEvent);
+procedure Lab1.clear;
 begin
-  self.AOwner:=AOwner;
-  self.Notify:=Notify;
-end;
-
-procedure Lab1.destroy;
-begin
-  self.AOwner:=nil;
-  self.Notify:=nil;
 end;
 
 end.

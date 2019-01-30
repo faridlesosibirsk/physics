@@ -4,7 +4,7 @@ interface
 
 type
   Labs = interface
-    procedure destroy;
+    procedure clear;
   end;
 
 implementation
