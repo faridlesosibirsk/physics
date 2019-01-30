@@ -57,6 +57,7 @@ end;
 
 procedure PhisicsController.First;
 begin
+  AOwner.Caption := 'Открытая Физика';
   Mechanics := TGroupBox.create(nil);
   with Mechanics do
   begin
@@ -76,7 +77,7 @@ end;
 
 procedure PhisicsController.Open(Sender: TObject);
 begin
-  clear;
+  //clear;
   First;
 end;
 {
