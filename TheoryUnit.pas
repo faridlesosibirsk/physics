@@ -3,6 +3,7 @@ unit TheoryUnit;
 interface
 
 uses
+  SysUtils {IntToStr} ,
   Vcl.ExtCtrls {TPanel} ,
   classes {TNotifyEvent} ,
   Vcl.Controls {TWinControl} ,
@@ -31,30 +32,32 @@ implementation
 { Theory }
 
 constructor Theory.create(AOwner: TForm; lab: Labs; Back: TNotifyEvent);
+var
+  count: integer;
 begin
-  panel:= TPanel.Create(nil);
-  BackButton:= TButton.Create(nil);
-  self.lab:= lab;
-  self.AOwner:= AOwner;
-  self.Back:= Back;
+  panel := TPanel.create(nil);
+  BackButton := TButton.create(nil);
+  self.lab := lab;
+  self.AOwner := AOwner;
+  self.Back := Back;
   with AOwner do
   begin
-    Caption := lab.caption;
+    Caption := lab.Caption;
   end;
   with BackButton do
   begin
     Caption := '< Back';
-    Anchors:=[akRight, akTop];
+    Anchors := [akRight, akTop];
     Left := 500;
     Top := 8;
     Parent := AOwner;
     OnClick := toBack;
   end;
-
-  with panel do
-  begin
-
-  end;
+  count:= lab.Theory.Count;
+    with panel do
+    begin
+      Caption:=IntToStr(count);
+    end;
 end;
 
 procedure Theory.destroy;
