@@ -3,17 +3,19 @@ unit Unit1;
 interface
 
 uses
-  ControllsUnit,
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Data.Win.ADODB, Vcl.DBCGrids,
-  Vcl.StdCtrls, Vcl.DBCtrls;
+  PhisicsControllerUnit,
+  ControllersUnit,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
 
 type
   TForm1 = class(TForm)
     procedure FormCreate(Sender: TObject);
+
   private
     /// <link>aggregation</link>
-    Phisica: Controlls;
+    Controllers1: Controllers;
   public
     { Public declarations }
   end;
@@ -25,9 +27,10 @@ implementation
 
 {$R *.dfm}
 
+
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-  Phisica:= Controll.Create(self);
+  Controllers1 := PhisicsController.create(self);
 end;
 
 end.

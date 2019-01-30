@@ -1,6 +1,6 @@
 ﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 		<PropertyGroup>
-			<ProjectGuid>{B401545B-1B7A-469A-A985-53EC6BC58856}</ProjectGuid>
+			<ProjectGuid>{E2BE0903-B818-4667-BFC2-4D2A8BE1BD2A}</ProjectGuid>
 			<ProjectVersion>13.4</ProjectVersion>
 			<FrameworkType>VCL</FrameworkType>
 			<MainSource>Project1.dpr</MainSource>
@@ -86,49 +86,56 @@
 				<Form>Form1</Form>
 				<FormType>dfm</FormType>
 			</DCCReference>
-			<DCCReference Include="ConnectionUnit.pas"/>
-			<DCCReference Include="PhisicsUnit.pas"/>
+			<DCCReference Include="ControllersUnit.pas"/>
+			<DCCReference Include="PhisicsControllerUnit.pas"/>
 			<DCCReference Include="LabsUnit.pas"/>
-			<DCCReference Include="ControllsUnit.pas"/>
-			<DCCReference Include="TheoryUnit.pas"/>
-			<DCCReference Include="ContentUnit.pas"/>
-			<DCCReference Include="TestUnit.pas"/>
-			<DCCReference Include="MethodUnit.pas"/>
-			<DCCReference Include="ReportUnit.pas"/>
-			<DCCReference Include="Lab3Unit.pas"/>
 			<DCCReference Include="Lab1Unit.pas"/>
 			<DCCReference Include="Lab2Unit.pas"/>
+			<DCCReference Include="TheoryLab1Unit.pas"/>
+			<DCCReference Include="TheoryLab2Unit.pas"/>
+			<DCCReference Include="TestLab1Unit.pas"/>
+			<DCCReference Include="TestLab2Unit.pas"/>
+			<DCCReference Include="MethodLab1Unit.pas"/>
+			<DCCReference Include="MethodLab2Unit.pas"/>
+			<DCCReference Include="ReportLab1Unit.pas"/>
+			<DCCReference Include="ReportLab2Unit.pas"/>
+			<DCCReference Include="ConnectionUnit.pas"/>
+			<DCCReference Include="AccessConnectionUnit.pas"/>
 			<None Include="ModelSupport_Project1\default.txaPackage"/>
 			<None Include="ModelSupport_Project1\default.txvpck"/>
 			<None Include="ModelSupport_Project1\Unit1\default.txvpck"/>
 			<None Include="ModelSupport_Project1\Project1\default.txvpck"/>
 			<None Include="ModelSupport_Project1\Unit1\default.txaPackage"/>
-			<None Include="ModelSupport_Project1\ConnectionUnit\default.txaPackage"/>
-			<None Include="ModelSupport_Project1\ConnectionUnit\default.txvpck"/>
-			<None Include="ModelSupport_Project1\PhisicsUnit\default.txaPackage"/>
-			<None Include="ModelSupport_Project1\PhisicsUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\ControllersUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\PhisicsControllerUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\PhisicsControllerUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\ControllersUnit\default.txvpck"/>
 			<None Include="ModelSupport_Project1\LabsUnit\default.txaPackage"/>
 			<None Include="ModelSupport_Project1\LabsUnit\default.txvpck"/>
-			<None Include="ModelSupport_Project1\ControllsUnit\default.txaPackage"/>
-			<None Include="ModelSupport_Project1\ControllsUnit\default.txvpck"/>
-			<None Include="ModelSupport_Project1\TheoryUnit\default.txaPackage"/>
-			<None Include="ModelSupport_Project1\TheoryUnit\default.txvpck"/>
-			<None Include="ModelSupport_Project1\OpenUnit\default.txaPackage"/>
-			<None Include="ModelSupport_Project1\OpenUnit\default.txvpck"/>
-			<None Include="ModelSupport_Project1\TestUnit\default.txaPackage"/>
-			<None Include="ModelSupport_Project1\TestUnit\default.txvpck"/>
-			<None Include="ModelSupport_Project1\MethodUnit\default.txaPackage"/>
-			<None Include="ModelSupport_Project1\MethodUnit\default.txvpck"/>
-			<None Include="ModelSupport_Project1\ReportUnit\default.txaPackage"/>
-			<None Include="ModelSupport_Project1\ReportUnit\default.txvpck"/>
-			<None Include="ModelSupport_Project1\Lab3Unit\default.txaPackage"/>
-			<None Include="ModelSupport_Project1\Lab3Unit\default.txvpck"/>
-			<None Include="ModelSupport_Project1\ContentUnit\default.txaPackage"/>
-			<None Include="ModelSupport_Project1\ContentUnit\default.txvpck"/>
 			<None Include="ModelSupport_Project1\Lab1Unit\default.txaPackage"/>
-			<None Include="ModelSupport_Project1\Lab2Unit\default.txaPackage"/>
 			<None Include="ModelSupport_Project1\Lab1Unit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\Lab2Unit\default.txaPackage"/>
 			<None Include="ModelSupport_Project1\Lab2Unit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\TheoryLab1Unit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\TheoryLab1Unit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\TheoryLab2Unit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\TheoryLab2Unit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\TestLab1Unit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\TestLab1Unit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\TestLab2Unit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\TestLab2Unit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\MethodLab1Unit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\MethodLab1Unit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\MethodLab2Unit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\MethodLab2Unit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\ReportLab1Unit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\ReportLab1Unit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\ReportLab2Unit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\ReportLab2Unit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\ConnectionUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\ConnectionUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\AccessConnectionUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\AccessConnectionUnit\default.txvpck"/>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>
