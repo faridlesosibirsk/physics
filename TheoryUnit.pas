@@ -3,6 +3,7 @@ unit TheoryUnit;
 interface
 
 uses
+  System.Generics.Collections {TDictionary} ,
   SysUtils {IntToStr} ,
   Vcl.ExtCtrls {TPanel} ,
   classes {TNotifyEvent} ,
@@ -20,7 +21,7 @@ type
     lab: Labs;
     AOwner: TForm;
     Back: TNotifyEvent;
-    panel: TPanel;
+    panel: TList<TPanel>;
     procedure toBack(Sender: TObject);
   published
     constructor create(AOwner: TForm; lab: Labs; Back: TNotifyEvent);
@@ -33,9 +34,10 @@ implementation
 
 constructor Theory.create(AOwner: TForm; lab: Labs; Back: TNotifyEvent);
 var
-  count: integer;
+  i: integer;
+  s: string;
 begin
-  panel := TPanel.create(nil);
+  panel := TList<TPanel>.create;
   BackButton := TButton.create(nil);
   self.lab := lab;
   self.AOwner := AOwner;
@@ -53,16 +55,30 @@ begin
     Parent := AOwner;
     OnClick := toBack;
   end;
-  count:= lab.Theory.Count;
-    with panel do
-    begin
-      Caption:=IntToStr(count);
-    end;
+  i:=0;
+  for s in lab.Theory do
+  begin
+    panel.Add(TPanel.create(AOwner));
+    panel.Last.Caption := s;
+    panel.Last.Parent := AOwner;
+    panel.Last.Top := 41 * i;
+    i:=i+1;
+  end;
+
 end;
 
 procedure Theory.destroy;
+var
+  p: TPanel;
 begin
   BackButton.Free;
+  // panel.Free;
+  for p in panel do
+  begin
+    p.Parent := nil;
+    p.Free;
+  end;
+  panel.Free;
   lab := nil;
 end;
 

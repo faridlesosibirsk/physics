@@ -9,6 +9,9 @@ uses
   Vcl.StdCtrls, Vcl.DBCtrls, Vcl.Forms;
 
 type
+  TVarArray = Array of String;
+  TVarList = TList<TVarArray>;
+
   Connection = interface
     function theoryLab1: TList<String>;
   end;
@@ -28,7 +31,7 @@ implementation
 
 { AccessConnection }
 
-constructor AccessConnection.create;//(AOwner: TForm);
+constructor AccessConnection.create; // (AOwner: TForm);
 begin
   // if not Assigned(ADOConnection) then
   ADOConnection := TADOConnection.create(nil);
@@ -42,34 +45,43 @@ begin
       'accdb;Persist Security Info=False';
     Connected := True;
   end;
-{
-  // if not Assigned(ADOQuery) then
-  ADOQuery := TADOQuery.create(nil);
-  with (ADOQuery) do
-  begin
+  {
+    // if not Assigned(ADOQuery) then
+    ADOQuery := TADOQuery.create(nil);
+    with (ADOQuery) do
+    begin
     Connection := ADOConnection;
     Close;
     SQL.Clear;
     SQL.add('SELECT title FROM Mechanics WHERE id = 1;');
     Open;
     Active := True;
-  end;
-  // if not Assigned(DataSource) then
-  DataSource := TDataSource.create(nil);
-  with (DataSource) do
-  begin
+    end;
+    // if not Assigned(DataSource) then
+    DataSource := TDataSource.create(nil);
+    with (DataSource) do
+    begin
     DataSet := ADOQuery;
-  end;
-  //AOwner.Caption := ADOQuery.FieldByName('title').AsString;
-}
+    end;
+    //AOwner.Caption := ADOQuery.FieldByName('title').AsString;
+  }
 end;
 
 function AccessConnection.theoryLab1: TList<String>;
-var
-  theory1: TList<String>;
-begin
-  theory1:= TList<String>.create;
+  Function GetRow: String;
+  var
+    i: Integer;
+  begin
+    SetLength(Result, ADOQuery.FieldCount);
+    {or i := 0 to ADOQuery.FieldCount - 1 do
+    begin
+      Result[i] := ADOQuery.Fields[i].Value;
 
+    end;}
+    Result:= ADOQuery.FieldByName('theory').AsString;
+  end;
+
+begin
   ADOQuery := TADOQuery.create(nil);
   with (ADOQuery) do
   begin
@@ -80,10 +92,13 @@ begin
     Open;
     Active := True;
   end;
-  // for string in ADOQuery do
-  // theory1.add(string);
-  // ADOQuery.free;
-  result:=theory1;
+  Result := TList<String>.create;
+  ADOQuery.First;
+  While not ADOQuery.Eof do
+  begin
+    Result.add(ADOQuery.FieldByName('theory').AsString);
+    ADOQuery.Next;
+  end;
 end;
 
 end.

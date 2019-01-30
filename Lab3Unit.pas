@@ -37,7 +37,8 @@ function Lab3.theory: TList<String>;
 var
   theory1: TList<String>;
 begin
-  theory1:= TList<String>.create;
+  theory1:= TList<String>.Create;
+  Result := theory1;
 end;
 
 end.
