@@ -34,7 +34,7 @@ begin
   TheoryButton:= TButton.Create(AOwner);
   with TheoryButton do begin
     Parent:=AOwner;
-    Caption:='Open >';
+    Caption:='Exit >';
     Left:=100;
     OnClick:=Open;
   end;

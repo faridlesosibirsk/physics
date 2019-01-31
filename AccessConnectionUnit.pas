@@ -17,6 +17,7 @@ type
     ADOConnection: TADOConnection;
   public
     function theoryLab1: TList<String>;
+    function testLab1: TList<String>;
   published
     constructor create;
   end;
@@ -34,14 +35,13 @@ begin
     Mode := cmShareDenyNone;
     LoginPrompt := False;
     ConnectionString := 'Provider=Microsoft.ACE.OLEDB.12.0;' +
-      'Data Source=C:\_GIT\physics\Win32\Debug\Mechanics.accdb;' +
+      'Data Source=Phisics.accdb;' +
       'Persist Security Info=False';
     Connected := True;
   end;
 end;
 
-function AccessConnection.theoryLab1: TList<String>;
-
+function AccessConnection.testLab1: TList<String>;
 begin
   ADOQuery := TADOQuery.create(nil);
   with (ADOQuery) do
@@ -49,7 +49,28 @@ begin
     Connection := ADOConnection;
     Close;
     SQL.Clear;
-    SQL.add('SELECT theory FROM Lab1;');
+    SQL.add('SELECT test FROM TestLab1;');
+    Open;
+    Active := True;
+  end;
+  Result := TList<String>.create;
+  ADOQuery.First;
+  While not ADOQuery.Eof do
+  begin
+    Result.add(ADOQuery.FieldByName('test').AsString);
+    ADOQuery.Next;
+  end;
+end;
+
+function AccessConnection.theoryLab1: TList<String>;
+begin
+  ADOQuery := TADOQuery.create(nil);
+  with (ADOQuery) do
+  begin
+    Connection := ADOConnection;
+    Close;
+    SQL.Clear;
+    SQL.add('SELECT theory FROM TheoryLab1;');
     Open;
     Active := True;
   end;

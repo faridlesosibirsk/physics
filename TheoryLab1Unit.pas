@@ -17,7 +17,7 @@ type
   private
     AOwner: TForm;
     OpenButton: TButton;
-    TheoryButton: TButton;
+    TestButton: TButton;
     panel: TPanel;
     NextButton: TButton;
     BackButton: TButton;
@@ -47,8 +47,8 @@ begin
     Caption := '< Open';
     OnClick := Open;
   end;
-  TheoryButton := TButton.create(AOwner);
-  with TheoryButton do
+  TestButton := TButton.create(AOwner);
+  with TestButton do
   begin
     Parent := AOwner;
     Caption := 'Test >';
@@ -78,7 +78,8 @@ end;
 
 procedure TheoryLab1.NextPanel(Sender: TObject);
 begin
-  panel := TPanel.create(nil);
+  if not assigned(panel) then
+    panel := TPanel.create(nil);
   with panel do
   begin
     Parent := AOwner;
@@ -99,7 +100,8 @@ end;
 
 procedure TheoryLab1.BackPanel(Sender: TObject);
 begin
-  panel := TPanel.create(nil);
+  if not assigned(panel) then
+    panel := TPanel.create(nil);
   with panel do
   begin
     Parent := AOwner;
@@ -121,10 +123,11 @@ end;
 procedure TheoryLab1.clear;
 begin
   inherited;
+  BackButton.Parent := nil;
   NextButton.Parent := nil;
   panel.Parent := nil;
   OpenButton.Parent := nil;
-  TheoryButton.Parent := nil;
+  TestButton.Parent := nil;
 end;
 
 end.
