@@ -3,6 +3,7 @@ unit ReportLab1Unit;
 interface
 
 uses
+  Vcl.ValEdit {TValueListEditor} ,
   Vcl.StdCtrls {TButton} ,
   classes {TNotifyEvent} ,
   Vcl.Forms,
@@ -13,6 +14,7 @@ type
   private
     BackButton: TButton;
     TheoryButton: TButton;
+    ResultDimension: TValueListEditor;
   published
     constructor create(AOwner: TForm; toLab1Method, Open: TNotifyEvent);
     procedure clear; override;
@@ -38,11 +40,19 @@ begin
     Left:=100;
     OnClick:=Open;
   end;
+
+  ResultDimension:= TValueListEditor.Create(AOwner);
+  with ResultDimension do begin
+    Parent := AOwner;
+    Left := 400;
+    Top := 50;
+  end;
 end;
 
 procedure ReportLab1.clear;
 begin
   inherited;
+  ResultDimension.Parent:=nil;
   BackButton.Parent:=nil;
   TheoryButton.Parent:=nil;
 end;

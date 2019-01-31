@@ -85,6 +85,8 @@ begin
       OnClick := toLab1Theory;
     end;
   end;
+
+
 end;
 
 procedure PhisicsController.Open(Sender: TObject);
