@@ -8,7 +8,8 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Data.DB,
-  Data.Win.ADODB, Vcl.ComCtrls, Vcl.Grids, Vcl.ValEdit;
+  Data.Win.ADODB, Vcl.ComCtrls, Vcl.Grids, Vcl.ValEdit, Vcl.Menus,
+  Vcl.Imaging.jpeg;
 
 type
   TForm1 = class(TForm)

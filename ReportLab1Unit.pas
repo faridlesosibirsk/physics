@@ -26,7 +26,7 @@ implementation
 
 constructor ReportLab1.create(AOwner: TForm; toLab1Method, Open: TNotifyEvent);
 begin
-  AOwner.Caption := 'ReportLab1';
+  AOwner.Caption := 'Обработка результатов и оформление отчета';
   BackButton:= TButton.Create(AOwner);
   with BackButton do begin
     Parent:=AOwner;

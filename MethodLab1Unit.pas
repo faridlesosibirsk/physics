@@ -37,7 +37,7 @@ implementation
 constructor MethodLab1.create(AOwner: TForm;
   toLab1Test, toLab1Report: TNotifyEvent);
 begin
-  AOwner.Caption := 'MethodLab1';
+  AOwner.Caption := 'Методика и порядок измерений';
   BackButton := TButton.create(AOwner);
   with BackButton do
   begin

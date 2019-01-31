@@ -38,7 +38,7 @@ begin
   Connection1 := AccessConnection.create;
   Count := Connection1.TestLab1.Count;
   self.AOwner := AOwner;
-  AOwner.Caption := 'TestLab1';
+  AOwner.Caption := 'Вопросы и задания для самоконтроля.';
   TheoryButton:= TButton.Create(AOwner);
   with TheoryButton do begin
     Parent:=AOwner;
@@ -84,7 +84,7 @@ begin
     Caption := Connection1.TestLab1.Items[i];
     Left := 300;
     Top := 300;
-    Width:=300;
+    Width:=500;
     if i < 1 then
       BackButton.Parent := nil
     else
@@ -107,7 +107,7 @@ begin
     Caption := Connection1.TestLab1.Items[i];
     Left := 300;
     Top := 300;
-    Width:=300;
+    Width:=500;
     if i < Count - 1 then
       NextButton.Parent := AOwner
     else

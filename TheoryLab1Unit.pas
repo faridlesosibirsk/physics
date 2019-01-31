@@ -39,7 +39,7 @@ begin
   Connection1 := AccessConnection.create;
   Count := Connection1.TheoryLab1.Count;
   self.AOwner := AOwner;
-  AOwner.Caption := 'TheoryLab1';
+  AOwner.Caption := 'Краткая теория';
   OpenButton := TButton.create(AOwner);
   with OpenButton do
   begin

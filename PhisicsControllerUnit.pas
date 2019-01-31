@@ -3,6 +3,7 @@ unit PhisicsControllerUnit;
 interface
 
 uses
+  Graphics {TColor} ,
   TheoryLab1Unit,
   TestLab1Unit,
   MethodLab1Unit,
@@ -21,8 +22,8 @@ type
     /// <link>aggregation</link>
     Lab: Labs;
     AOwner: TForm;
-    Mechanics: TGroupBox;
     Lab1Panel: TPanel;
+    //Mechanics: TGroupBox;
     // procedure toLab1(Sender: TObject);
     procedure toLab1Theory(Sender: TObject);
     procedure toLab1Test(Sender: TObject);
@@ -44,8 +45,6 @@ procedure PhisicsController.clear;
 begin
   if assigned(Lab) then
     Lab.clear;
-  if assigned(Mechanics) then
-    Mechanics.Parent := nil;
   if assigned(Lab1Panel) then
     Lab1Panel.Parent := nil;
 end;
@@ -59,33 +58,25 @@ end;
 procedure PhisicsController.First;
 begin
   AOwner.Caption := 'Открытая Физика';
-  if assigned(Mechanics) then
-    Mechanics.Parent := AOwner
-  else
-  begin
-    Mechanics := TGroupBox.create(nil);
-    with Mechanics do
-    begin
-      Parent := AOwner;
-      Align := alLeft;
-      Caption := 'Механика';
-    end;
-  end;
 
   if assigned(Lab1Panel) then
-    Lab1Panel.Parent := Mechanics
+    Lab1Panel.Parent := AOwner
   else
   begin
     Lab1Panel := TPanel.create(nil);
     with Lab1Panel do
     begin
-      Parent := Mechanics;
-      Align := alTop;
-      Caption := 'Lab1';
+      Parent := AOwner;
+      //Align := alTop;
+      Width:=300;
+      Left:=30;
+      Top:=30;
+      Caption := 'Движение с постоянным ускорением';
+      Cursor:=crHandPoint;
+      Width:=300;
       OnClick := toLab1Theory;
     end;
   end;
-
 
 end;
 
