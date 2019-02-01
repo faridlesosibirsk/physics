@@ -1,8 +1,9 @@
 unit MethodLab1Unit;
-
+
 interface
 
 uses
+  labsunit, ConnectionUnit,
   Vcl.ValEdit {TValueListEditor} ,
   Vcl.ComCtrls {TTrackBar} ,
   Graphics {TColor} ,
@@ -14,8 +15,12 @@ uses
   Lab1Unit;
 
 type
-  MethodLab1 = class(Lab1)
+  MethodLab1 = class(TInterfacedObject, Lab1)
   private
+    AOwner: TForm;
+    Notify: TNotifyEvent;
+    /// <link>aggregation</link>
+    Connection1: Connection;
     BackButton: TButton;
     TheoryButton: TButton;
     StartButton: TButton;
@@ -27,7 +32,7 @@ type
     InitialParameters: TValueListEditor;
   published
     constructor create(AOwner: TForm; toLab1Test, toLab1Report: TNotifyEvent);
-    procedure clear; override;
+    procedure clear;
   end;
 
 implementation
@@ -114,7 +119,6 @@ end;
 
 procedure MethodLab1.clear;
 begin
-  inherited;
   InitialParameters.Parent := nil;
   StartButton.Parent := nil;
   HeightBar.Parent := nil;

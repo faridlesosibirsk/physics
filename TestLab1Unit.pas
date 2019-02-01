@@ -1,8 +1,8 @@
 unit TestLab1Unit;
-
-interface
+interface
 
 uses
+  labsunit, ConnectionUnit,
   Vcl.ExtCtrls {TPanel} ,
   AccessConnectionUnit,
   Vcl.StdCtrls {TButton} ,
@@ -11,8 +11,11 @@ uses
   Lab1Unit;
 
 type
-  TestLab1 = class(Lab1)
+  TestLab1 = class(TInterfacedObject, Lab1)
   private
+    Notify: TNotifyEvent;
+    /// <link>aggregation</link>
+    Connection1: Connection;
     AOwner: TForm;
     TheoryButton: TButton;
     MethodButton: TButton;
@@ -25,7 +28,7 @@ type
     procedure BackPanel(Sender: TObject);
   published
     constructor create(AOwner: TForm; toLab1Theory, toLab1Method: TNotifyEvent);
-    procedure clear; override;
+    procedure clear;
   end;
 
 implementation
@@ -121,7 +124,6 @@ end;
 
 procedure TestLab1.clear;
 begin
-  inherited;
   TheoryButton.Parent:=nil;
   MethodButton.Parent:=nil;
   BackButton.Parent := nil;
@@ -130,3 +132,4 @@ begin
 end;
 
 end.
+

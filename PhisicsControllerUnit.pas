@@ -1,8 +1,12 @@
 unit PhisicsControllerUnit;
-
+
 interface
 
 uses
+  MechanicsUnit,
+  System.Generics.Collections {TDictionary} ,
+  ConnectionUnit,
+  AccessConnectionUnit,
   Graphics {TColor} ,
   TheoryLab1Unit,
   TestLab1Unit,
@@ -19,16 +23,24 @@ uses
 type
   PhisicsController = class(TInterfacedObject, Controllers)
   private
+    MechanicsPanels: TList<TPanel>;
+    captionMechanics: TList<String>;
+    MainPanels: TList<TPanel>;
+    captionMain: TList<String>;
+    /// <link>aggregation</link>
+    Connection1: Connection;
     /// <link>aggregation</link>
     Lab: Labs;
     AOwner: TForm;
-    Lab1Panel: TPanel;
-    //Mechanics: TGroupBox;
+    Panel: TPanel;
+    // Mechanics: TGroupBox;
     // procedure toLab1(Sender: TObject);
     procedure toLab1Theory(Sender: TObject);
     procedure toLab1Test(Sender: TObject);
     procedure toLab1Method(Sender: TObject);
     procedure toLab1Report(Sender: TObject);
+    procedure createChapter;
+    procedure createMechanics;//(notify: TNotifyEvent);
   public
     procedure Open(Sender: TObject);
     procedure First;
@@ -45,39 +57,82 @@ procedure PhisicsController.clear;
 begin
   if assigned(Lab) then
     Lab.clear;
-  if assigned(Lab1Panel) then
-    Lab1Panel.Parent := nil;
+  if assigned(Panel) then
+    Panel.Parent := nil;
 end;
 
 constructor PhisicsController.create(AOwner: TForm);
 begin
+  Connection1 := AccessConnection.create;
   self.AOwner := AOwner;
   First;
+end;
+
+procedure PhisicsController.createChapter;
+var
+  s: string;
+  i: integer;
+begin
+  i := 0;
+  MainPanels := TList<TPanel>.create;
+  captionMain := TList<String>.create;
+  captionMain := Connection1.getColTable('caption', 'Main');
+  for s in captionMain do
+  begin
+    with MainPanels do
+    begin
+      Add(TPanel.create(nil));
+      Last.Caption := s;
+      Last.Parent := Panel;
+      Last.Width := 250;
+      Last.Left := i * 250;
+    end;
+    i := i + 1;
+  end;
+end;
+
+procedure PhisicsController.createMechanics;
+var
+  s: string;
+  i: integer;
+begin
+  i := 1;
+  MechanicsPanels := TList<TPanel>.create;
+  captionMechanics := TList<String>.create;
+  captionMechanics := Connection1.getColTable('caption', 'Mechanics');
+  for s in captionMechanics do
+  begin
+    with MechanicsPanels do
+    begin
+      Add(TPanel.create(nil));
+      Last.Caption := s;
+      Last.Parent := Panel;
+      Last.Width := 250;
+      Last.Top := i * 41;
+    end;
+    i := i + 1;
+  end;
+  MechanicsPanels.Items[0].OnClick:=toLab1Theory;
 end;
 
 procedure PhisicsController.First;
 begin
   AOwner.Caption := 'Открытая Физика';
 
-  if assigned(Lab1Panel) then
-    Lab1Panel.Parent := AOwner
+  if assigned(Panel) then
+    Panel.Parent := AOwner
   else
   begin
-    Lab1Panel := TPanel.create(nil);
-    with Lab1Panel do
-    begin
-      Parent := AOwner;
-      //Align := alTop;
-      Width:=300;
-      Left:=30;
-      Top:=30;
-      Caption := 'Движение с постоянным ускорением';
-      Cursor:=crHandPoint;
-      Width:=300;
-      OnClick := toLab1Theory;
-    end;
+  Panel := TPanel.create(nil);
+  with Panel do
+  begin
+    Parent := AOwner;
+    Align := alClient;
+    Caption := '';
   end;
-
+  end;
+  createChapter;
+  createMechanics;
 end;
 
 procedure PhisicsController.Open(Sender: TObject);
@@ -89,25 +144,33 @@ end;
 procedure PhisicsController.toLab1Method(Sender: TObject);
 begin
   clear;
-  Lab := MethodLab1.create(AOwner, toLab1Test, toLab1Report);
+  Lab := Mechanics.create(AOwner);
+  Lab.createMethodLab1(toLab1Test, toLab1Report);
+  //Lab := MethodLab1.create(AOwner, toLab1Test, toLab1Report);
 end;
 
 procedure PhisicsController.toLab1Report(Sender: TObject);
 begin
   clear;
-  Lab := ReportLab1.create(AOwner, toLab1Method, Open);
+  Lab := Mechanics.create(AOwner);
+  Lab.createReportLab1(toLab1Method, Open);
+  //Lab := ReportLab1.create(AOwner, toLab1Method, Open);
 end;
 
 procedure PhisicsController.toLab1Test(Sender: TObject);
 begin
   clear;
-  Lab := TestLab1.create(AOwner, toLab1Theory, toLab1Method);
+  Lab := Mechanics.create(AOwner);
+  Lab.createTestLab1(toLab1Theory, toLab1Method);
+  //Lab := TestLab1.create(AOwner, toLab1Theory, toLab1Method);
 end;
 
 procedure PhisicsController.toLab1Theory(Sender: TObject);
 begin
   clear;
-  Lab := TheoryLab1.create(AOwner, Open, toLab1Test);
+  Lab := Mechanics.create(AOwner);
+  Lab.createTheoryLab1(Open, toLab1Test);
+  //Lab := TheoryLab1.create(AOwner, Open, toLab1Test);
 end;
 
 end.

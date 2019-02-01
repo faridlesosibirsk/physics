@@ -7,6 +7,7 @@ uses
 
 type
   Connection = interface
+    function getColTable(cal, table: string): TList<String>;
     function theoryLab1: TList<String>;
     function testLab1: TList<String>;
   end;

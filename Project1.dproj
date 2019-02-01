@@ -96,6 +96,7 @@
 			<DCCReference Include="ReportLab1Unit.pas"/>
 			<DCCReference Include="ConnectionUnit.pas"/>
 			<DCCReference Include="AccessConnectionUnit.pas"/>
+			<DCCReference Include="MechanicsUnit.pas"/>
 			<None Include="ModelSupport_Project1\default.txaPackage"/>
 			<None Include="ModelSupport_Project1\default.txvpck"/>
 			<None Include="ModelSupport_Project1\Unit1\default.txvpck"/>
@@ -121,6 +122,7 @@
 			<None Include="ModelSupport_Project1\ConnectionUnit\default.txvpck"/>
 			<None Include="ModelSupport_Project1\AccessConnectionUnit\default.txaPackage"/>
 			<None Include="ModelSupport_Project1\AccessConnectionUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\MechanicsUnit\default.txvpck"/>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>

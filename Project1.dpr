@@ -12,7 +12,8 @@ uses
   MethodLab1Unit in 'MethodLab1Unit.pas',
   ReportLab1Unit in 'ReportLab1Unit.pas',
   ConnectionUnit in 'ConnectionUnit.pas',
-  AccessConnectionUnit in 'AccessConnectionUnit.pas';
+  AccessConnectionUnit in 'AccessConnectionUnit.pas',
+  MechanicsUnit in 'MechanicsUnit.pas';
 
 {$R *.res}
 
