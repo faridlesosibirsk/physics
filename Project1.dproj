@@ -87,26 +87,25 @@
 				<FormType>dfm</FormType>
 			</DCCReference>
 			<DCCReference Include="ControllersUnit.pas"/>
-			<DCCReference Include="PhisicsControllerUnit.pas"/>
-			<DCCReference Include="LabsUnit.pas"/>
+			<DCCReference Include="OpenUnit.pas"/>
+			<DCCReference Include="MechanicsUnit.pas"/>
 			<DCCReference Include="Lab1Unit.pas"/>
+			<DCCReference Include="ConnectionUnit.pas"/>
+			<DCCReference Include="AccessConnectionUnit.pas"/>
 			<DCCReference Include="TheoryLab1Unit.pas"/>
 			<DCCReference Include="TestLab1Unit.pas"/>
 			<DCCReference Include="MethodLab1Unit.pas"/>
 			<DCCReference Include="ReportLab1Unit.pas"/>
-			<DCCReference Include="ConnectionUnit.pas"/>
-			<DCCReference Include="AccessConnectionUnit.pas"/>
+			<DCCReference Include="ContentUnit.pas"/>
+			<DCCReference Include="MainUnit.pas"/>
+			<DCCReference Include="LaboratoryControllerUnit.pas"/>
 			<None Include="ModelSupport_Project1\default.txaPackage"/>
 			<None Include="ModelSupport_Project1\default.txvpck"/>
 			<None Include="ModelSupport_Project1\Unit1\default.txvpck"/>
 			<None Include="ModelSupport_Project1\Project1\default.txvpck"/>
 			<None Include="ModelSupport_Project1\Unit1\default.txaPackage"/>
 			<None Include="ModelSupport_Project1\ControllersUnit\default.txaPackage"/>
-			<None Include="ModelSupport_Project1\PhisicsControllerUnit\default.txaPackage"/>
-			<None Include="ModelSupport_Project1\PhisicsControllerUnit\default.txvpck"/>
 			<None Include="ModelSupport_Project1\ControllersUnit\default.txvpck"/>
-			<None Include="ModelSupport_Project1\LabsUnit\default.txaPackage"/>
-			<None Include="ModelSupport_Project1\LabsUnit\default.txvpck"/>
 			<None Include="ModelSupport_Project1\Lab1Unit\default.txaPackage"/>
 			<None Include="ModelSupport_Project1\Lab1Unit\default.txvpck"/>
 			<None Include="ModelSupport_Project1\TheoryLab1Unit\default.txaPackage"/>
@@ -121,6 +120,16 @@
 			<None Include="ModelSupport_Project1\ConnectionUnit\default.txvpck"/>
 			<None Include="ModelSupport_Project1\AccessConnectionUnit\default.txaPackage"/>
 			<None Include="ModelSupport_Project1\AccessConnectionUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\OpenUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\OpenUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\MechanicsUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\MechanicsUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\ContentUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\ContentUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\MainUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\MainUnit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\LaboratoryControllerUnit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\LaboratoryControllerUnit\default.txvpck"/>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>

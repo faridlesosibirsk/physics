@@ -1,12 +1,12 @@
 unit AccessConnectionUnit;
-
+
 interface
 
 uses
+
   System.Generics.Collections {TDictionary} ,
   Data.DB,
   Data.Win.ADODB,
-  controllersunit,
   ConnectionUnit;
 
 type
@@ -16,8 +16,7 @@ type
     DataSource: TDataSource;
     ADOConnection: TADOConnection;
   public
-    function theoryLab1: TList<String>;
-    function testLab1: TList<String>;
+    function getColTable(cal, table: string): TList<String>;
   published
     constructor create;
   end;
@@ -35,13 +34,12 @@ begin
     Mode := cmShareDenyNone;
     LoginPrompt := False;
     ConnectionString := 'Provider=Microsoft.ACE.OLEDB.12.0;' +
-      'Data Source=Phisics.accdb;' +
-      'Persist Security Info=False';
+      'Data Source=Phisics.accdb;' + 'Persist Security Info=False';
     Connected := True;
   end;
 end;
 
-function AccessConnection.testLab1: TList<String>;
+function AccessConnection.getColTable(cal, table: string): TList<String>;
 begin
   ADOQuery := TADOQuery.create(nil);
   with (ADOQuery) do
@@ -49,7 +47,7 @@ begin
     Connection := ADOConnection;
     Close;
     SQL.Clear;
-    SQL.add('SELECT test FROM TestLab1;');
+    SQL.add('SELECT ' + cal + ' FROM ' + table + ';');
     Open;
     Active := True;
   end;
@@ -57,31 +55,9 @@ begin
   ADOQuery.First;
   While not ADOQuery.Eof do
   begin
-    Result.add(ADOQuery.FieldByName('test').AsString);
-    ADOQuery.Next;
-  end;
-end;
-
-function AccessConnection.theoryLab1: TList<String>;
-begin
-  ADOQuery := TADOQuery.create(nil);
-  with (ADOQuery) do
-  begin
-    Connection := ADOConnection;
-    Close;
-    SQL.Clear;
-    SQL.add('SELECT theory FROM TheoryLab1;');
-    Open;
-    Active := True;
-  end;
-  Result := TList<String>.create;
-  ADOQuery.First;
-  While not ADOQuery.Eof do
-  begin
-    Result.add(ADOQuery.FieldByName('theory').AsString);
+    Result.add(ADOQuery.FieldByName(cal).AsString);
     ADOQuery.Next;
   end;
 end;
 
 end.
-
