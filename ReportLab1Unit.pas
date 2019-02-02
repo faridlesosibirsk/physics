@@ -1,17 +1,16 @@
 unit ReportLab1Unit;
-
-interface
+interface
 
 uses
-  labsunit, ConnectionUnit,
+  ConnectionUnit,
   Vcl.ValEdit {TValueListEditor} ,
   Vcl.StdCtrls {TButton} ,
   classes {TNotifyEvent} ,
   Vcl.Forms,
-  Lab1Unit;
+  Laboratory1Unit;
 
 type
-  ReportLab1 = class(TInterfacedObject, Lab1)
+  ReportLab1 = class(TInterfacedObject, Laboratory1)
   private
     AOwner: TForm;
     Notify: TNotifyEvent;
@@ -22,7 +21,7 @@ type
     ResultDimension: TValueListEditor;
   published
     constructor create(AOwner: TForm; toLab1Method, Open: TNotifyEvent);
-    procedure clear;
+    procedure reset;
   end;
 
 implementation
@@ -54,7 +53,7 @@ begin
   end;
 end;
 
-procedure ReportLab1.clear;
+procedure ReportLab1.reset;
 begin
   ResultDimension.Parent:=nil;
   BackButton.Parent:=nil;

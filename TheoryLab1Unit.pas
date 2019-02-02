@@ -1,17 +1,18 @@
 unit TheoryLab1Unit;
 interface
 uses
-  labsunit, SysUtils {IntToStr} ,
+  System.Generics.Collections {TDictionary} ,
+  SysUtils {IntToStr} ,
   Vcl.ExtCtrls {TPanel} ,
   AccessConnectionUnit,
   ConnectionUnit,
   Vcl.StdCtrls {TButton} ,
   classes {TNotifyEvent} ,
   Vcl.Forms,
-  Lab1Unit;
+  Laboratory1Unit;
 
 type
-  TheoryLab1 = class(TInterfacedObject, Lab1)
+  TheoryLab1 = class(TInterfacedObject, Laboratory1)
   private
     Notify: TNotifyEvent;
     /// <link>aggregation</link>
@@ -28,7 +29,7 @@ type
     procedure BackPanel(Sender: TObject);
   published
     constructor create(AOwner: TForm; Open, toLab1Test: TNotifyEvent);
-    procedure clear;
+    procedure reset;
   end;
 
 implementation
@@ -40,12 +41,13 @@ begin
   Connection1 := AccessConnection.create;
   Count := Connection1.TheoryLab1.Count;
   self.AOwner := AOwner;
+  //AOwner.Caption := Connection1.getLab('theory');
   AOwner.Caption := 'Краткая теория';
   OpenButton := TButton.create(AOwner);
   with OpenButton do
   begin
     Parent := AOwner;
-    Caption := '< Open';
+    Caption := '< Exit';
     OnClick := Open;
   end;
   TestButton := TButton.create(AOwner);
@@ -121,7 +123,7 @@ begin
   end;
 end;
 
-procedure TheoryLab1.clear;
+procedure TheoryLab1.reset;
 begin
   BackButton.Parent := nil;
   NextButton.Parent := nil;

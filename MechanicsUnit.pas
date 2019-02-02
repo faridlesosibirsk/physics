@@ -9,18 +9,18 @@ uses
   TheoryLab1Unit,
   classes {TNotifyEvent} ,
   Vcl.Forms,
-  Lab1Unit,
-  labsunit;
+  Laboratory1Unit,
+  LaboratoriesUnit;
 
 type
-  Mechanics = class(TInterfacedObject, Labs)
+  Mechanics = class(TInterfacedObject, Laboratories)
   private
     AOwner: TForm;
     toLab1Theory, toLab1Method: TNotifyEvent;
     /// <link>aggregation</link>
-    Lab1_: Lab1;
+    Lab1_: Laboratory1;
   public
-    procedure clear;
+    procedure reset;
     procedure createTheoryLab1(Open, toLab1Test: TNotifyEvent);
     procedure createMethodLab1(toLab1Test, toLab1Report: TNotifyEvent);
     procedure createTestLab1(toLab1Theory, toLab1Method: TNotifyEvent);
@@ -33,9 +33,9 @@ implementation
 
 { Mechanics }
 
-procedure Mechanics.clear;
+procedure Mechanics.reset;
 begin
-  Lab1_.clear;
+  Lab1_.reset;
 end;
 
 constructor Mechanics.create(AOwner: TForm);
