@@ -39,6 +39,10 @@ type
     procedure toLab1Test(Sender: TObject);
     procedure toLab1Method(Sender: TObject);
     procedure toLab1Report(Sender: TObject);
+    procedure toLab2Theory(Sender: TObject);
+    procedure toLab2Test(Sender: TObject);
+    procedure toLab2Method(Sender: TObject);
+    procedure toLab2Report(Sender: TObject);
     procedure createChapter;
     procedure createMechanics;//(notify: TNotifyEvent);
   public
@@ -115,6 +119,8 @@ begin
   end;
   MechanicsPanels.Items[0].OnClick:=toLab1Theory;
   MechanicsPanels.Items[0].cursor:=crHandPoint;
+  MechanicsPanels.Items[1].OnClick:=toLab2Theory;
+  MechanicsPanels.Items[1].cursor:=crHandPoint;
 end;
 
 procedure PhisicsController.First;
@@ -169,6 +175,34 @@ begin
   reset;
   Lab := Mechanics.create(AOwner);
   Lab.createTheoryLab1(Open, toLab1Test);
+end;
+
+procedure PhisicsController.toLab2Method(Sender: TObject);
+begin
+  reset;
+  Lab := Mechanics.create(AOwner);
+  Lab.createMethodLab2(toLab2Test, toLab2Report);
+end;
+
+procedure PhisicsController.toLab2Report(Sender: TObject);
+begin
+  reset;
+  Lab := Mechanics.create(AOwner);
+  Lab.createReportLab2(toLab2Method, Open);
+end;
+
+procedure PhisicsController.toLab2Test(Sender: TObject);
+begin
+  reset;
+  Lab := Mechanics.create(AOwner);
+  Lab.createTestLab2(toLab2Theory, toLab2Method);
+end;
+
+procedure PhisicsController.toLab2Theory(Sender: TObject);
+begin
+  reset;
+  Lab := Mechanics.create(AOwner);
+  Lab.createTheoryLab2(Open, toLab2Test);
 end;
 
 end.

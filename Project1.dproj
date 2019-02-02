@@ -97,6 +97,11 @@
 			<DCCReference Include="ConnectionUnit.pas"/>
 			<DCCReference Include="AccessConnectionUnit.pas"/>
 			<DCCReference Include="MechanicsUnit.pas"/>
+			<DCCReference Include="Laboratory2Unit.pas"/>
+			<DCCReference Include="MethodLab2Unit.pas"/>
+			<DCCReference Include="ReportLab2Unit.pas"/>
+			<DCCReference Include="TestLab2Unit.pas"/>
+			<DCCReference Include="TheoryLab2Unit.pas"/>
 			<None Include="ModelSupport_Project1\default.txaPackage"/>
 			<None Include="ModelSupport_Project1\default.txvpck"/>
 			<None Include="ModelSupport_Project1\Unit1\default.txvpck"/>
@@ -123,6 +128,16 @@
 			<None Include="ModelSupport_Project1\LaboratoriesUnit\default.txvpck"/>
 			<None Include="ModelSupport_Project1\Laboratory1Unit\default.txaPackage"/>
 			<None Include="ModelSupport_Project1\Laboratory1Unit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\TheoryLab2Unit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\Laboratory2Unit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\Laboratory2Unit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\TheoryLab2Unit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\TestLab2Unit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\TestLab2Unit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\MethodLab2Unit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\MethodLab2Unit\default.txvpck"/>
+			<None Include="ModelSupport_Project1\ReportLab2Unit\default.txaPackage"/>
+			<None Include="ModelSupport_Project1\ReportLab2Unit\default.txvpck"/>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>

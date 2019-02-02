@@ -19,6 +19,8 @@ type
     function getColTable(cal, table: string): TList<String>;
     function theoryLab1: TList<String>;
     function testLab1: TList<String>;
+    function theoryLab2: TList<String>;
+    function testLab2: TList<String>;
     function getLab(caption: string): String;
   published
     constructor create;
@@ -107,6 +109,28 @@ begin
   ADOQuery.Free;
 end;
 
+function AccessConnection.testLab2: TList<String>;
+begin
+  ADOQuery := TADOQuery.create(nil);
+  with (ADOQuery) do
+  begin
+    Connection := ADOConnection;
+    Close;
+    SQL.Clear;
+    SQL.add('SELECT test FROM TestLab2;');
+    Open;
+    Active := True;
+  end;
+  Result := TList<String>.create;
+  ADOQuery.First;
+  While not ADOQuery.Eof do
+  begin
+    Result.add(ADOQuery.FieldByName('test').AsString);
+    ADOQuery.Next;
+  end;
+  ADOQuery.Free;
+end;
+
 function AccessConnection.theoryLab1: TList<String>;
 begin
   ADOQuery := TADOQuery.create(nil);
@@ -116,6 +140,28 @@ begin
     Close;
     SQL.Clear;
     SQL.add('SELECT theory FROM TheoryLab1;');
+    Open;
+    Active := True;
+  end;
+  Result := TList<String>.create;
+  ADOQuery.First;
+  While not ADOQuery.Eof do
+  begin
+    Result.add(ADOQuery.FieldByName('theory').AsString);
+    ADOQuery.Next;
+  end;
+  ADOQuery.Free;
+end;
+
+function AccessConnection.theoryLab2: TList<String>;
+begin
+  ADOQuery := TADOQuery.create(nil);
+  with (ADOQuery) do
+  begin
+    Connection := ADOConnection;
+    Close;
+    SQL.Clear;
+    SQL.add('SELECT theory FROM TheoryLab2;');
     Open;
     Active := True;
   end;
